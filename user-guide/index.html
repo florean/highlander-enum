@@ -1,0 +1,1965 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Flag enums with subsets in which there can be only one set.">
+      
+      
+        <meta name="author" content="Nathan Florea">
+      
+      
+        <link rel="canonical" href="https://florean.github.io/highlander-enum/user-guide/">
+      
+      
+        <link rel="prev" href="../getting-started/">
+      
+      
+        <link rel="next" href="../examples/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>User Guide - highlander-enum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#user-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="highlander-enum" class="md-header__button md-logo" aria-label="highlander-enum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            highlander-enum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              User Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/florean/highlander-enum" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    florean/highlander-enum
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="highlander-enum" class="md-nav__button md-logo" aria-label="highlander-enum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    highlander-enum
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/florean/highlander-enum" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    florean/highlander-enum
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mutually-exclusive-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mutually Exclusive Flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitmask-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bitmask Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conflict Detection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exflag-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExFlag Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ExFlag Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-resolution-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conflict Resolution Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conflict Resolution Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rhs-right-hand-side-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      RHS (Right-Hand Side) - Default
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lhs-left-hand-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      LHS (Left-Hand Side)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRICT Mode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitwise-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bitwise Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Exclusions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-level-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class-Level Exclusions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optionsflag-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      OptionsFlag Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OptionsFlag Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tuple-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuple Formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-cli-parsers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building CLI Parsers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conflict-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conflict Resolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conflict Resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-resolution-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Resolution Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Resolution Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rhs-strategy-practical-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      RHS Strategy - Practical Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lhs-strategy-preserving-original-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      LHS Strategy - Preserving Original Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict-strategy-fail-fast-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRICT Strategy - Fail-Fast Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-resolution-in-complex-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conflict Resolution in Complex Scenarios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inheritance-and-base-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inheritance and Base Classes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-values-with-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto Values with Exclusions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-conflict-handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Conflict Handlers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-raw-integers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Raw Integers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Safety
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Safety">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Hints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generic-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generic Patterns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clear-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Clear Naming Conventions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-logical-grouping" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Logical Grouping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-document-complex-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Document Complex Relationships
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-use-appropriate-conflict-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Use Appropriate Conflict Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-test-edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Test Edge Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mutually-exclusive-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mutually Exclusive Flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitmask-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bitmask Implementation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conflict Detection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exflag-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      ExFlag Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ExFlag Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-resolution-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conflict Resolution Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conflict Resolution Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rhs-right-hand-side-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      RHS (Right-Hand Side) - Default
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lhs-left-hand-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      LHS (Left-Hand Side)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRICT Mode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitwise-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bitwise Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Exclusions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-level-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class-Level Exclusions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optionsflag-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      OptionsFlag Class
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OptionsFlag Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tuple-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuple Formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-cli-parsers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building CLI Parsers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conflict-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conflict Resolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conflict Resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-resolution-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding Resolution Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Resolution Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rhs-strategy-practical-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      RHS Strategy - Practical Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lhs-strategy-preserving-original-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      LHS Strategy - Preserving Original Values
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strict-strategy-fail-fast-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      STRICT Strategy - Fail-Fast Validation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-resolution-in-complex-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conflict Resolution in Complex Scenarios
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inheritance-and-base-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inheritance and Base Classes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-values-with-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auto Values with Exclusions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-conflict-handlers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Conflict Handlers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-raw-integers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Raw Integers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Safety
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Safety">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Hints
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generic-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generic Patterns
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clear-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Clear Naming Conventions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-logical-grouping" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Logical Grouping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-document-complex-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Document Complex Relationships
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-use-appropriate-conflict-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Use Appropriate Conflict Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-test-edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Test Edge Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="user-guide">User Guide<a class="headerlink" href="#user-guide" title="Permanent link">&para;</a></h1>
+<p>This comprehensive guide covers all features and advanced usage patterns of Highlander Enum.</p>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#core-concepts">Core Concepts</a></li>
+<li><a href="#exflag-class">ExFlag Class</a></li>
+<li><a href="#optionsflag-class">OptionsFlag Class</a></li>
+<li><a href="#conflict-resolution">Conflict Resolution</a></li>
+<li><a href="#advanced-usage">Advanced Usage</a></li>
+<li><a href="#type-safety">Type Safety</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+</ol>
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="mutually-exclusive-flags">Mutually Exclusive Flags<a class="headerlink" href="#mutually-exclusive-flags" title="Permanent link">&para;</a></h3>
+<p>The fundamental concept behind Highlander Enum is mutual exclusion. When flags are defined as mutually exclusive, only one from the group can be active at any time.</p>
+<pre><code class="language-python">from highlander import ExFlag
+
+class Quality(ExFlag):
+    LOW = 1
+    MEDIUM = 2
+    HIGH = 4
+    ULTRA = 8, (LOW, MEDIUM, HIGH)  # ULTRA conflicts with all others
+</code></pre>
+<h3 id="bitmask-implementation">Bitmask Implementation<a class="headerlink" href="#bitmask-implementation" title="Permanent link">&para;</a></h3>
+<p>Under the hood, Highlander Enum uses efficient bitmasks for conflict resolution:</p>
+<pre><code class="language-python"># When you define exclusions, bitmasks are created automatically
+class Example(ExFlag):
+    A = 1       # Binary: 0001
+    B = 2, (A,) # Binary: 0010, excludes A (0001)
+    C = 4       # Binary: 0100, no conflicts
+
+# The __exclusives__ mapping stores these relationships
+print(Example.__exclusives__)  # Shows the internal bitmasks
+</code></pre>
+<h3 id="conflict-detection">Conflict Detection<a class="headerlink" href="#conflict-detection" title="Permanent link">&para;</a></h3>
+<p>Conflicts are detected during bitwise operations (<code>|</code>, <code>&amp;</code>, <code>^</code>) and flag creation:</p>
+<pre><code class="language-python">class Mode(ExFlag):
+    FAST = 1
+    SLOW = 2, (FAST,)
+
+# Conflict detected and resolved during OR operation
+result = Mode.FAST | Mode.SLOW  # SLOW wins (RHS default)
+
+# Conflict detected and resolved during flag creation
+combined = Mode(3)  # 3 = FAST(1) + SLOW(2), resolves to FAST
+</code></pre>
+<h2 id="exflag-class">ExFlag Class<a class="headerlink" href="#exflag-class" title="Permanent link">&para;</a></h2>
+<h3 id="basic-definition">Basic Definition<a class="headerlink" href="#basic-definition" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from highlander import ExFlag
+
+class MyFlag(ExFlag):
+    # Simple flags (no conflicts)
+    FEATURE_A = 1
+    FEATURE_B = 2
+
+    # Flag with exclusions
+    EXCLUSIVE = 4
+MyFlag.EXCLUSIVE.add_exclusions(MyFlag.FEATURE_A, MyFlag.FEATURE_B)
+</code></pre>
+<h3 id="conflict-resolution-strategies">Conflict Resolution Strategies<a class="headerlink" href="#conflict-resolution-strategies" title="Permanent link">&para;</a></h3>
+<h4 id="rhs-right-hand-side-default">RHS (Right-Hand Side) - Default<a class="headerlink" href="#rhs-right-hand-side-default" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">class RHSFlag(ExFlag):  # Default behavior
+    A = 1
+    B = 2, (A,)
+
+result = RHSFlag.A | RHSFlag.B  # B wins
+print(result)  # RHSFlag.B
+</code></pre>
+<h4 id="lhs-left-hand-side">LHS (Left-Hand Side)<a class="headerlink" href="#lhs-left-hand-side" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from highlander import LHS
+
+class LHSFlag(ExFlag, conflict=LHS):
+    A = 1
+    B = 2, (A,)
+
+result = LHSFlag.A | LHSFlag.B  # A wins
+print(result)  # LHSFlag.A
+</code></pre>
+<h4 id="strict-mode">STRICT Mode<a class="headerlink" href="#strict-mode" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from highlander import STRICT
+
+class StrictFlag(ExFlag, conflict=STRICT):
+    A = 1
+    B = 2, (A,)
+
+try:
+    result = StrictFlag.A | StrictFlag.B
+except ValueError as e:
+    print(f&quot;Error: {e}&quot;)  # Error: StrictFlag.B conflicts with StrictFlag.A
+</code></pre>
+<h3 id="bitwise-operations">Bitwise Operations<a class="headerlink" href="#bitwise-operations" title="Permanent link">&para;</a></h3>
+<p>All standard bitwise operations work with conflict resolution:</p>
+<pre><code class="language-python">class OpFlag(ExFlag):
+    A = 1
+    B = 2, (A,)
+    C = 4
+
+# OR operation with conflict resolution
+result1 = OpFlag.A | OpFlag.B  # OpFlag.B
+
+# AND operation (no conflict resolution needed)
+result2 = OpFlag.A &amp; OpFlag.C  # OpFlag(0) if no common bits
+
+# XOR operation with conflict resolution
+result3 = OpFlag.A ^ OpFlag.B  # OpFlag.B
+
+# Reverse operations also work
+result4 = 1 | OpFlag.B  # OpFlag.B
+</code></pre>
+<h3 id="dynamic-exclusions">Dynamic Exclusions<a class="headerlink" href="#dynamic-exclusions" title="Permanent link">&para;</a></h3>
+<p>Add exclusions at runtime using the <code>add_exclusions</code> method:</p>
+<pre><code class="language-python">class DynamicFlag(ExFlag):
+    X = 1
+    Y = 2
+    Z = 4
+
+# Add exclusions after class creation
+flag_x = DynamicFlag.X
+flag_x.add_exclusions(DynamicFlag.Y, DynamicFlag.Z)
+
+# Now X conflicts with Y and Z
+result = DynamicFlag.X | DynamicFlag.Y
+print(result)  # DynamicFlag.X (conflicts resolved)
+</code></pre>
+<h3 id="class-level-exclusions">Class-Level Exclusions<a class="headerlink" href="#class-level-exclusions" title="Permanent link">&para;</a></h3>
+<p>Use <code>add_mutual_exclusions</code> to set up complex relationships:</p>
+<pre><code class="language-python">class GroupFlag(ExFlag):
+    A = 1
+    B = 2
+    C = 4
+    D = 8
+
+# Make A, B, C mutually exclusive (D remains independent)
+GroupFlag.add_mutual_exclusions([GroupFlag.A, GroupFlag.B, GroupFlag.C])
+
+result = GroupFlag.A | GroupFlag.B | GroupFlag.D
+print(result)  # GroupFlag.B|D (B wins over A, D is independent)
+</code></pre>
+<h2 id="optionsflag-class">OptionsFlag Class<a class="headerlink" href="#optionsflag-class" title="Permanent link">&para;</a></h2>
+<p><code>OptionsFlag</code> extends <code>ExFlag</code> with features specifically designed for command-line options and configuration systems.</p>
+<h3 id="tuple-formats">Tuple Formats<a class="headerlink" href="#tuple-formats" title="Permanent link">&para;</a></h3>
+<p><code>OptionsFlag</code> supports multiple tuple formats for maximum flexibility:</p>
+<pre><code class="language-python">from highlander import OptionsFlag
+
+class CLIOptions(OptionsFlag):
+    # Format 1: (value, help_string)
+    SIMPLE = 1, &quot;Simple option with help text&quot;
+
+    # Format 2: (value, [aliases], help_string)
+    WITH_ALIASES = 2, [&quot;a&quot;, &quot;alias&quot;], &quot;Option with aliases&quot;
+
+    # Format 3: (value, [aliases], help_string, [exclusions])
+    FULL = 4, [&quot;f&quot;, &quot;full&quot;], &quot;Full specification&quot;, (WITH_ALIASES,)
+
+    # Format 4: (value, help_string, [exclusions])
+    HELP_EXCL = 8, &quot;Help with exclusions&quot;, (SIMPLE,)
+
+    # Format 5: (value, [], help_string) - empty aliases
+    EMPTY_ALIASES = 16, [], &quot;Option with empty aliases list&quot;
+</code></pre>
+<h3 id="accessing-metadata">Accessing Metadata<a class="headerlink" href="#accessing-metadata" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">class ServerOpts(OptionsFlag):
+    VERBOSE = 1, [&quot;v&quot;, &quot;verbose&quot;], &quot;Enable verbose output&quot;
+    QUIET = 2, [&quot;q&quot;, &quot;quiet&quot;], &quot;Suppress output&quot;, (VERBOSE,)
+    DEBUG = 4, [&quot;d&quot;, &quot;debug&quot;], &quot;Enable debug mode&quot;
+
+# Access help text
+print(ServerOpts.VERBOSE.help)    # &quot;Enable verbose output&quot;
+print(ServerOpts.QUIET.help)      # &quot;Suppress output&quot;
+
+# Access aliases
+print(ServerOpts.VERBOSE.aliases) # ['v', 'verbose']
+print(ServerOpts.DEBUG.aliases)   # []
+
+# Aliases are automatically registered for lookups
+verbose_flag = ServerOpts._value2member_map_['verbose']
+print(verbose_flag == ServerOpts.VERBOSE)  # True
+</code></pre>
+<h3 id="building-cli-parsers">Building CLI Parsers<a class="headerlink" href="#building-cli-parsers" title="Permanent link">&para;</a></h3>
+<p><code>OptionsFlag</code> is perfect for building command-line parsers:</p>
+<pre><code class="language-python">import argparse
+from highlander import OptionsFlag
+
+class ProcessorOptions(OptionsFlag):
+    FAST = 1, [&quot;f&quot;, &quot;fast&quot;], &quot;Fast processing mode&quot;
+    ACCURATE = 2, [&quot;a&quot;, &quot;accurate&quot;], &quot;Accurate processing mode&quot;, (FAST,)
+    VERBOSE = 4, [&quot;v&quot;, &quot;verbose&quot;], &quot;Verbose output&quot;
+    QUIET = 8, [&quot;q&quot;, &quot;quiet&quot;], &quot;Quiet mode&quot;, (VERBOSE,)
+
+def create_parser():
+    parser = argparse.ArgumentParser()
+
+    # Add options based on flag definitions
+    for option in ProcessorOptions:
+        primary_name = f&quot;--{option.name.lower().replace('_', '-')}&quot;
+        aliases = [f&quot;--{alias}&quot; for alias in option.aliases]
+
+        parser.add_argument(
+            primary_name, *aliases,
+            action='store_true',
+            help=option.help
+        )
+
+    return parser
+
+# Usage
+parser = create_parser()
+args = parser.parse_args(['--fast', '--verbose'])
+
+# Convert args to flags
+flags = ProcessorOptions(0)
+if args.fast: flags |= ProcessorOptions.FAST
+if args.accurate: flags |= ProcessorOptions.ACCURATE
+if args.verbose: flags |= ProcessorOptions.VERBOSE
+if args.quiet: flags |= ProcessorOptions.QUIET
+
+print(flags)  # ProcessorOptions.FAST|VERBOSE
+</code></pre>
+<h2 id="conflict-resolution">Conflict Resolution<a class="headerlink" href="#conflict-resolution" title="Permanent link">&para;</a></h2>
+<h3 id="understanding-resolution-strategies">Understanding Resolution Strategies<a class="headerlink" href="#understanding-resolution-strategies" title="Permanent link">&para;</a></h3>
+<p>Each strategy handles conflicts differently when mutually exclusive flags are combined:</p>
+<h4 id="rhs-strategy-practical-example">RHS Strategy - Practical Example<a class="headerlink" href="#rhs-strategy-practical-example" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from highlander import ExFlag
+
+class LogLevel(ExFlag):  # Default: RHS
+    ERROR = 1
+    WARN = 2
+    INFO = 4
+    DEBUG = 8, (ERROR, WARN, INFO)
+
+# Building up configuration step by step
+config = LogLevel.ERROR
+print(f&quot;Initial: {config}&quot;)        # Initial: LogLevel.ERROR
+
+config |= LogLevel.WARN
+print(f&quot;After WARN: {config}&quot;)     # After WARN: LogLevel.WARN (WARN wins)
+
+config |= LogLevel.DEBUG
+print(f&quot;After DEBUG: {config}&quot;)    # After DEBUG: LogLevel.DEBUG (DEBUG wins)
+</code></pre>
+<h4 id="lhs-strategy-preserving-original-values">LHS Strategy - Preserving Original Values<a class="headerlink" href="#lhs-strategy-preserving-original-values" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from highlander import ExFlag, LHS
+
+class SecureMode(ExFlag, conflict=LHS):
+    BASIC = 1
+    ENHANCED = 2
+    MAXIMUM = 4, (BASIC, ENHANCED)
+
+# Once set, original value is preserved
+security = SecureMode.MAXIMUM
+print(f&quot;Initial: {security}&quot;)      # Initial: SecureMode.MAXIMUM
+
+security |= SecureMode.BASIC
+print(f&quot;After BASIC: {security}&quot;)  # After BASIC: SecureMode.MAXIMUM (preserved)
+
+security |= SecureMode.ENHANCED
+print(f&quot;After ENHANCED: {security}&quot;)  # After ENHANCED: SecureMode.MAXIMUM (preserved)
+</code></pre>
+<h4 id="strict-strategy-fail-fast-validation">STRICT Strategy - Fail-Fast Validation<a class="headerlink" href="#strict-strategy-fail-fast-validation" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">from highlander import ExFlag, STRICT
+
+class ValidatedFlag(ExFlag, conflict=STRICT):
+    OPTION_A = 1
+    OPTION_B = 2, (OPTION_A,)
+    OPTION_C = 4
+
+def safe_combine(flag1, flag2):
+    try:
+        return flag1 | flag2
+    except ValueError as e:
+        print(f&quot;Cannot combine {flag1} and {flag2}: {e}&quot;)
+        return None
+
+result1 = safe_combine(ValidatedFlag.OPTION_A, ValidatedFlag.OPTION_C)
+print(result1)  # ValidatedFlag.OPTION_A|OPTION_C (no conflict)
+
+result2 = safe_combine(ValidatedFlag.OPTION_A, ValidatedFlag.OPTION_B)
+print(result2)  # None (conflict detected and handled)
+</code></pre>
+<h3 id="conflict-resolution-in-complex-scenarios">Conflict Resolution in Complex Scenarios<a class="headerlink" href="#conflict-resolution-in-complex-scenarios" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from highlander import ExFlag
+
+class ComplexFlag(ExFlag):
+    # Group 1: Colors
+    RED = 1
+    GREEN = 2
+    BLUE = 4, (RED, GREEN)
+
+    # Group 2: Sizes
+    SMALL = 8
+    MEDIUM = 16
+    LARGE = 32, (SMALL, MEDIUM)
+
+    # Independent
+    ANIMATED = 64
+
+# Multiple conflicts resolved simultaneously
+complex_value = ComplexFlag.RED | ComplexFlag.GREEN | ComplexFlag.SMALL | ComplexFlag.LARGE | ComplexFlag.ANIMATED
+
+# Results in: GREEN (wins over RED) + LARGE (wins over SMALL) + ANIMATED (no conflict)
+print(complex_value)  # ComplexFlag.ANIMATED|GREEN|LARGE
+</code></pre>
+<h2 id="advanced-usage">Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permanent link">&para;</a></h2>
+<h3 id="inheritance-and-base-classes">Inheritance and Base Classes<a class="headerlink" href="#inheritance-and-base-classes" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from highlander import ExFlag
+
+class BaseFlag(ExFlag):
+    FEATURE_A = 1
+    FEATURE_B = 2, (FEATURE_A,)
+
+class ExtendedFlag(BaseFlag):
+    FEATURE_C = 4
+    FEATURE_D = 8, (FEATURE_B, FEATURE_C)  # Can reference parent flags
+
+# All exclusions work across the inheritance hierarchy
+result = ExtendedFlag.FEATURE_A | ExtendedFlag.FEATURE_D
+print(result)  # ExtendedFlag.FEATURE_D (wins over FEATURE_A through FEATURE_B)
+</code></pre>
+<h3 id="auto-values-with-exclusions">Auto Values with Exclusions<a class="headerlink" href="#auto-values-with-exclusions" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from enum import auto
+from highlander import OptionsFlag
+
+class AutoOptions(OptionsFlag):
+    VERBOSE = auto(), [&quot;v&quot;], &quot;Verbose output&quot;
+    QUIET = auto(), [&quot;q&quot;], &quot;Quiet mode&quot;, (VERBOSE,)
+    DEBUG = auto(), [&quot;d&quot;], &quot;Debug mode&quot;, (QUIET,)
+
+    # auto() generates power-of-2 values automatically for flags
+    FEATURE_X = auto(), &quot;Another feature&quot;
+
+# Check the generated values
+for opt in AutoOptions:
+    print(f&quot;{opt.name}: {opt.value} (binary: {bin(opt.value)})&quot;)
+</code></pre>
+<h3 id="custom-conflict-handlers">Custom Conflict Handlers<a class="headerlink" href="#custom-conflict-handlers" title="Permanent link">&para;</a></h3>
+<p>For advanced use cases, you can examine the internal conflict handling:</p>
+<pre><code class="language-python">class CustomFlag(ExFlag):
+    A = 1
+    B = 2, (A,)
+    C = 4
+
+# Examine exclusion masks
+print(f&quot;A exclusions: {bin(CustomFlag.__exclusives__[1])}&quot;)
+print(f&quot;B exclusions: {bin(CustomFlag.__exclusives__[2])}&quot;)
+print(f&quot;C exclusions: {bin(CustomFlag.__exclusives__[4])}&quot;)
+
+# The exclusion mask for A excludes B (value 2)
+# So A's mask will be ~2 which allows everything except bit 1
+</code></pre>
+<h3 id="working-with-raw-integers">Working with Raw Integers<a class="headerlink" href="#working-with-raw-integers" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">class IntFlag(ExFlag):
+    LOW = 1
+    HIGH = 2, (LOW,)
+    EXTRA = 4
+
+# Create from raw integers with automatic conflict resolution
+flag1 = IntFlag(1 | 2)  # LOW + HIGH conflict
+print(flag1)  # IntFlag.LOW (conflict resolved)
+
+flag2 = IntFlag(1 | 4)  # LOW + EXTRA no conflict
+print(flag2)  # IntFlag.LOW|EXTRA
+
+# Check membership
+if IntFlag.LOW in flag2:
+    print(&quot;LOW is present&quot;)
+
+# Get raw integer value
+raw_value = int(flag2)
+print(f&quot;Raw value: {raw_value}&quot;)  # Raw value: 5
+</code></pre>
+<h2 id="type-safety">Type Safety<a class="headerlink" href="#type-safety" title="Permanent link">&para;</a></h2>
+<h3 id="type-hints">Type Hints<a class="headerlink" href="#type-hints" title="Permanent link">&para;</a></h3>
+<p>Highlander Enum provides full type safety:</p>
+<pre><code class="language-python">from typing import Union
+from highlander import ExFlag
+
+class TypedFlag(ExFlag):
+    OPTION_A = 1
+    OPTION_B = 2, (OPTION_A,)
+
+def process_flag(flag: TypedFlag) -&gt; str:
+    &quot;&quot;&quot;Process a flag with full type safety.&quot;&quot;&quot;
+    if flag &amp; TypedFlag.OPTION_A:
+        return &quot;Processing A&quot;
+    elif flag &amp; TypedFlag.OPTION_B:
+        return &quot;Processing B&quot;
+    else:
+        return &quot;No options&quot;
+
+# Type checkers will validate these calls
+result1 = process_flag(TypedFlag.OPTION_A)         # ✓ Valid
+result2 = process_flag(TypedFlag.OPTION_A | TypedFlag.OPTION_B)  # ✓ Valid
+
+# This would cause a type error:
+# result3 = process_flag(&quot;invalid&quot;)  # ✗ Type error
+</code></pre>
+<h3 id="generic-patterns">Generic Patterns<a class="headerlink" href="#generic-patterns" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from typing import TypeVar, Generic
+from highlander import ExFlag
+
+T = TypeVar('T', bound=ExFlag)
+
+class ConfigManager(Generic[T]):
+    def __init__(self, flag_class: type[T]) -&gt; None:
+        self.flag_class = flag_class
+        self.current_flags: T = flag_class(0)
+
+    def set_flag(self, flag: T) -&gt; None:
+        self.current_flags |= flag
+
+    def get_flags(self) -&gt; T:
+        return self.current_flags
+
+# Usage with type safety
+class MyFlags(ExFlag):
+    A = 1
+    B = 2, (A,)
+
+manager = ConfigManager(MyFlags)
+manager.set_flag(MyFlags.A)  # Type safe
+</code></pre>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="1-clear-naming-conventions">1. Clear Naming Conventions<a class="headerlink" href="#1-clear-naming-conventions" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Good: Clear, descriptive names
+class LoggingMode(ExFlag):
+    ERROR_ONLY = 1
+    INCLUDE_WARNINGS = 2
+    INCLUDE_INFO = 4
+    FULL_DEBUG = 8, (ERROR_ONLY, INCLUDE_WARNINGS, INCLUDE_INFO)
+
+# Avoid: Unclear abbreviations
+class BadFlag(ExFlag):
+    E = 1
+    W = 2
+    I = 4
+    D = 8, (E, W, I)
+</code></pre>
+<h3 id="2-logical-grouping">2. Logical Grouping<a class="headerlink" href="#2-logical-grouping" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Good: Group related exclusions logically
+class UISettings(ExFlag):
+    # Theme group
+    LIGHT = 1
+    DARK = 2
+    HIGH_CONTRAST = 4, (LIGHT, DARK)
+
+    # Size group
+    SMALL = 8
+    LARGE = 16, (SMALL,)
+
+    # Independent features
+    ANIMATIONS = 32
+    TOOLTIPS = 64
+
+# Avoid: Mixed unrelated exclusions
+class BadSettings(ExFlag):
+    LIGHT = 1
+    SMALL = 2, (LIGHT,)  # Theme and size shouldn't conflict
+    ANIMATIONS = 4, (LIGHT,)  # Animations and theme shouldn't conflict
+</code></pre>
+<h3 id="3-document-complex-relationships">3. Document Complex Relationships<a class="headerlink" href="#3-document-complex-relationships" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">class ComplexSystem(ExFlag):
+    &quot;&quot;&quot;System configuration flags with multiple exclusion groups.
+
+    Exclusion Groups:
+    - Performance: FAST, BALANCED, THOROUGH
+    - Verbosity: QUIET, NORMAL, VERBOSE
+    - Output: JSON, XML, CSV
+    &quot;&quot;&quot;
+
+    # Performance group (mutually exclusive)
+    FAST = 1
+    BALANCED = 2
+    THOROUGH = 4, (FAST, BALANCED)
+
+    # Verbosity group (mutually exclusive)
+    QUIET = 8
+    NORMAL = 16
+    VERBOSE = 32, (QUIET, NORMAL)
+
+    # Output format group (mutually exclusive)
+    JSON = 64
+    XML = 128
+    CSV = 256, (JSON, XML)
+</code></pre>
+<h3 id="4-use-appropriate-conflict-resolution">4. Use Appropriate Conflict Resolution<a class="headerlink" href="#4-use-appropriate-conflict-resolution" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python"># Use RHS for progressive configuration
+class ProgressiveConfig(ExFlag):  # Default RHS
+    BASIC = 1
+    ENHANCED = 2
+    PREMIUM = 4, (BASIC, ENHANCED)
+
+# Use LHS for security/stability
+class SecurityLevel(ExFlag, conflict=LHS):
+    LOW = 1
+    MEDIUM = 2
+    HIGH = 4, (LOW, MEDIUM)
+
+# Use STRICT for validation
+class ValidatedOptions(ExFlag, conflict=STRICT):
+    DEVELOPMENT = 1
+    PRODUCTION = 2, (DEVELOPMENT,)
+</code></pre>
+<h3 id="5-test-edge-cases">5. Test Edge Cases<a class="headerlink" href="#5-test-edge-cases" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">import pytest
+from highlander import ExFlag
+
+class TestFlag(ExFlag):
+    A = 1
+    B = 2, (A,)
+
+def test_conflict_resolution():
+    &quot;&quot;&quot;Test that conflicts are resolved correctly.&quot;&quot;&quot;
+    result = TestFlag.A | TestFlag.B
+    assert result == TestFlag.B  # RHS wins
+
+def test_integer_creation():
+    &quot;&quot;&quot;Test creating flags from integers.&quot;&quot;&quot;
+    flag = TestFlag(3)  # A + B
+    assert flag == TestFlag.A  # Conflict resolved
+
+def test_no_conflict():
+    &quot;&quot;&quot;Test non-conflicting combinations.&quot;&quot;&quot;
+    # Add non-conflicting flag for testing
+    class ExtendedFlag(TestFlag):
+        C = 4
+
+    result = ExtendedFlag.A | ExtendedFlag.C
+    assert result.value == 5  # Should combine normally
+</code></pre>
+<hr />
+<p>This completes the comprehensive User Guide. For specific implementation examples, see the <a href="../examples/">Examples</a> section, or check the <a href="../api-reference/">API Reference</a> for detailed method documentation.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Maintained by Nathan Florea.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/florean/highlander-enum" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://pypi.org/project/highlander-enum" target="_blank" rel="noopener" title="pypi.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://bsky.app/florean" target="_blank" rel="noopener" title="bsky.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3M288 227.1c-26.1-50.7-97.1-145.2-163.1-191.8C61.6-9.4 37.5-1.7 21.6 5.5 3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7 3.3-.5 6.6-.9 10-1.4-3.3.5-6.6 1-10 1.4-93.9 14-177.3 48.2-67.9 169.9C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4 102.4-103.4 28.1-156-65.8-169.9-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3 64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

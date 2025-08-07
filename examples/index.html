@@ -1,0 +1,2179 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Flag enums with subsets in which there can be only one set.">
+      
+      
+        <meta name="author" content="Nathan Florea">
+      
+      
+        <link rel="canonical" href="https://florean.github.io/highlander-enum/examples/">
+      
+      
+        <link rel="prev" href="../user-guide/">
+      
+      
+        <link rel="next" href="../api-reference/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Examples - highlander-enum</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="highlander-enum" class="md-header__button md-logo" aria-label="highlander-enum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            highlander-enum
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/florean/highlander-enum" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    florean/highlander-enum
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="highlander-enum" class="md-nav__button md-logo" aria-label="highlander-enum" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    highlander-enum
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/florean/highlander-enum" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    florean/highlander-enum
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command-Line Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command-Line Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-cli-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic CLI Tool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-cli-with-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced CLI with Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Game Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graphics-settings-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graphics Settings Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connection Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-processor-with-multiple-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Processor with Multiple Modes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-server-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web Server Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Web Server Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Server Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-machine-with-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Machine with Exclusions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Modules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command-Line Tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command-Line Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-cli-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic CLI Tool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-cli-with-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced CLI with Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Game Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Game Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graphics-settings-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Graphics Settings Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Protocols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Protocols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connection Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-processor-with-multiple-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Processor with Multiple Modes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-server-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web Server Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Web Server Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Server Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-machine-with-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      State Machine with Exclusions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h1>
+<p>Real-world examples showing how to use Highlander Enum in various scenarios.</p>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#command-line-tools">Command-Line Tools</a></li>
+<li><a href="#game-configuration">Game Configuration</a></li>
+<li><a href="#network-protocols">Network Protocols</a></li>
+<li><a href="#file-processing">File Processing</a></li>
+<li><a href="#web-server-settings">Web Server Settings</a></li>
+<li><a href="#advanced-patterns">Advanced Patterns</a></li>
+</ol>
+<h2 id="command-line-tools">Command-Line Tools<a class="headerlink" href="#command-line-tools" title="Permanent link">&para;</a></h2>
+<h3 id="basic-cli-tool">Basic CLI Tool<a class="headerlink" href="#basic-cli-tool" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">import argparse
+from highlander import OptionsFlag
+
+class CLIFlags(OptionsFlag):
+    # Verbosity levels (mutually exclusive)
+    QUIET = 1, [&quot;q&quot;, &quot;quiet&quot;], &quot;Suppress all output&quot;
+    NORMAL = 2, [&quot;n&quot;, &quot;normal&quot;], &quot;Normal output level&quot;
+    VERBOSE = 4, [&quot;v&quot;, &quot;verbose&quot;], &quot;Verbose output&quot;
+    DEBUG = 8, [&quot;d&quot;, &quot;debug&quot;], &quot;Debug output&quot;, (QUIET, NORMAL, VERBOSE)
+
+    # Output formats (mutually exclusive)
+    TEXT = 16, [&quot;t&quot;, &quot;text&quot;], &quot;Plain text output&quot;
+    JSON = 32, [&quot;j&quot;, &quot;json&quot;], &quot;JSON formatted output&quot;
+    XML = 64, [&quot;x&quot;, &quot;xml&quot;], &quot;XML formatted output&quot;, (TEXT, JSON)
+
+    # Independent options
+    FORCE = 128, [&quot;f&quot;, &quot;force&quot;], &quot;Force operation without confirmation&quot;
+    DRY_RUN = 256, [&quot;dry-run&quot;], &quot;Show what would be done without executing&quot;
+
+def create_cli_parser():
+    &quot;&quot;&quot;Create argument parser from OptionsFlag definition.&quot;&quot;&quot;
+    parser = argparse.ArgumentParser(description=&quot;Example CLI tool&quot;)
+
+    # Add arguments based on flag definitions
+    for flag in CLIFlags:
+        # Create argument name
+        arg_name = f&quot;--{flag.name.lower().replace('_', '-')}&quot;
+        aliases = [f&quot;--{alias}&quot; for alias in flag.aliases if len(alias) &gt; 1]
+        short_aliases = [f&quot;-{alias}&quot; for alias in flag.aliases if len(alias) == 1]
+
+        parser.add_argument(
+            arg_name, *(aliases + short_aliases),
+            action='store_true',
+            help=flag.help
+        )
+
+    return parser
+
+def parse_cli_flags(args) -&gt; CLIFlags:
+    &quot;&quot;&quot;Convert parsed arguments to CLIFlags.&quot;&quot;&quot;
+    flags = CLIFlags(0)
+
+    if args.quiet: flags |= CLIFlags.QUIET
+    if args.normal: flags |= CLIFlags.NORMAL
+    if args.verbose: flags |= CLIFlags.VERBOSE
+    if args.debug: flags |= CLIFlags.DEBUG
+    if args.text: flags |= CLIFlags.TEXT
+    if args.json: flags |= CLIFlags.JSON
+    if args.xml: flags |= CLIFlags.XML
+    if args.force: flags |= CLIFlags.FORCE
+    if args.dry_run: flags |= CLIFlags.DRY_RUN
+
+    return flags
+
+def main():
+    parser = create_cli_parser()
+    args = parser.parse_args()
+    flags = parse_cli_flags(args)
+
+    # Use the flags to control behavior
+    if flags &amp; CLIFlags.DEBUG:
+        print(&quot;Debug mode enabled&quot;)
+        print(f&quot;Active flags: {flags}&quot;)
+    elif flags &amp; CLIFlags.VERBOSE:
+        print(&quot;Verbose mode enabled&quot;)
+    elif flags &amp; CLIFlags.QUIET:
+        pass  # Suppress output
+    else:
+        print(&quot;Normal operation&quot;)
+
+    if flags &amp; CLIFlags.DRY_RUN:
+        print(&quot;DRY RUN: Would process files...&quot;)
+    else:
+        print(&quot;Processing files...&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h3 id="advanced-cli-with-configuration">Advanced CLI with Configuration<a class="headerlink" href="#advanced-cli-with-configuration" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">import argparse
+import json
+from enum import auto
+from pathlib import Path
+
+from highlander import OptionsFlag
+
+class AppConfig(OptionsFlag):
+    # Log levels (mutually exclusive)
+    LOG_ERROR = auto(), [&quot;log-error&quot;], &quot;Log errors only&quot;
+    LOG_WARN = auto(), [&quot;log-warn&quot;], &quot;Log warnings and errors&quot;
+    LOG_INFO = auto(), [&quot;log-info&quot;], &quot;Log info, warnings, and errors&quot;
+    LOG_DEBUG = auto(), [&quot;log-debug&quot;], &quot;Log everything&quot;, (LOG_ERROR, LOG_WARN, LOG_INFO)
+
+    # Performance modes (mutually exclusive)
+    FAST = auto(), [&quot;fast&quot;], &quot;Prioritize speed over accuracy&quot;
+    BALANCED = auto(), [&quot;balanced&quot;], &quot;Balance speed and accuracy&quot;
+    ACCURATE = auto(), [&quot;accurate&quot;], &quot;Prioritize accuracy over speed&quot;, (FAST, BALANCED)
+
+    # Output options (mutually exclusive)
+    STDOUT = auto(), [&quot;stdout&quot;], &quot;Output to standard output&quot;
+    FILE = auto(), [&quot;file&quot;], &quot;Output to file&quot;
+    BOTH = auto(), [&quot;both&quot;], &quot;Output to both stdout and file&quot;, (STDOUT, FILE)
+
+    # Feature flags (independent)
+    COLORS = auto(), [&quot;colors&quot;], &quot;Enable colored output&quot;
+    PROGRESS = auto(), [&quot;progress&quot;], &quot;Show progress bars&quot;
+    TIMESTAMPS = auto(), [&quot;timestamps&quot;], &quot;Include timestamps in output&quot;
+
+class ConfigManager:
+    def __init__(self, config_file: Path = None):
+        self.config_file = config_file or Path(&quot;app.json&quot;)
+        self.flags = AppConfig(0)
+
+    def load_from_file(self) -&gt; AppConfig:
+        &quot;&quot;&quot;Load configuration from JSON file.&quot;&quot;&quot;
+        if not self.config_file.exists():
+            return AppConfig(0)
+
+        with open(self.config_file) as f:
+            data = json.load(f)
+
+        flags = AppConfig(0)
+        for flag_name, enabled in data.get(&quot;flags&quot;, {}).items():
+            if enabled and hasattr(AppConfig, flag_name):
+                flags |= getattr(AppConfig, flag_name)
+
+        return flags
+
+    def save_to_file(self, flags: AppConfig) -&gt; None:
+        &quot;&quot;&quot;Save configuration to JSON file.&quot;&quot;&quot;
+        data = {
+            &quot;flags&quot;: {
+                flag.name: bool(flags &amp; flag)
+                for flag in AppConfig
+            }
+        }
+
+        with open(self.config_file, 'w') as f:
+            json.dump(data, f, indent=2)
+
+    def merge_cli_args(self, cli_flags: AppConfig) -&gt; AppConfig:
+        &quot;&quot;&quot;Merge CLI arguments with file configuration.&quot;&quot;&quot;
+        # CLI arguments override file configuration
+        return self.flags | cli_flags
+
+# Usage example
+def main():
+    config_manager = ConfigManager()
+    file_config = config_manager.load_from_file()
+
+    # Parse CLI arguments (simplified)
+    cli_config = AppConfig.LOG_INFO | AppConfig.FAST | AppConfig.COLORS
+
+    # Merge configurations
+    final_config = config_manager.merge_cli_args(cli_config)
+
+    print(f&quot;Final configuration: {final_config}&quot;)
+
+    # Save the final configuration
+    config_manager.save_to_file(final_config)
+</code></pre>
+<h2 id="game-configuration">Game Configuration<a class="headerlink" href="#game-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="graphics-settings-manager">Graphics Settings Manager<a class="headerlink" href="#graphics-settings-manager" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from enum import auto
+
+from highlander import ExFlag
+
+class GraphicsSettings(ExFlag):
+    # Quality presets (mutually exclusive)
+    QUALITY_LOW = auto()
+    QUALITY_MEDIUM = auto()
+    QUALITY_HIGH = auto()
+    QUALITY_ULTRA = auto(), (QUALITY_LOW, QUALITY_MEDIUM, QUALITY_HIGH)
+
+    # Resolution scaling (mutually exclusive)
+    SCALE_50 = auto()
+    SCALE_75 = auto()
+    SCALE_100 = auto()
+    SCALE_125 = auto()
+    SCALE_150 = auto(), (SCALE_50, SCALE_75, SCALE_100, SCALE_125)
+
+    # Anti-aliasing (mutually exclusive)
+    AA_OFF = auto()
+    AA_FXAA = auto()
+    AA_MSAA_2X = auto()
+    AA_MSAA_4X = auto()
+    AA_MSAA_8X = auto(), (AA_OFF, AA_FXAA, AA_MSAA_2X, AA_MSAA_4X)
+
+    # Independent features
+    VSYNC = auto()
+    HDR = auto()
+    RAY_TRACING = auto()
+    MOTION_BLUR = auto()
+
+class GameConfig:
+    def __init__(self):
+        # Default to medium quality, 100% scale, FXAA, no extras
+        self.graphics = (GraphicsSettings.QUALITY_MEDIUM |
+                        GraphicsSettings.SCALE_100 |
+                        GraphicsSettings.AA_FXAA)
+
+        self.performance_profile = &quot;balanced&quot;
+
+    def apply_preset(self, preset: str) -&gt; None:
+        &quot;&quot;&quot;Apply a graphics preset.&quot;&quot;&quot;
+        presets = {
+            &quot;low&quot;: (GraphicsSettings.QUALITY_LOW |
+                   GraphicsSettings.SCALE_75 |
+                   GraphicsSettings.AA_OFF),
+
+            &quot;medium&quot;: (GraphicsSettings.QUALITY_MEDIUM |
+                      GraphicsSettings.SCALE_100 |
+                      GraphicsSettings.AA_FXAA),
+
+            &quot;high&quot;: (GraphicsSettings.QUALITY_HIGH |
+                    GraphicsSettings.SCALE_100 |
+                    GraphicsSettings.AA_MSAA_4X |
+                    GraphicsSettings.VSYNC),
+
+            &quot;ultra&quot;: (GraphicsSettings.QUALITY_ULTRA |
+                     GraphicsSettings.SCALE_125 |
+                     GraphicsSettings.AA_MSAA_8X |
+                     GraphicsSettings.VSYNC |
+                     GraphicsSettings.HDR |
+                     GraphicsSettings.RAY_TRACING)
+        }
+
+        if preset in presets:
+            self.graphics = presets[preset]
+            self.performance_profile = preset
+
+    def toggle_feature(self, feature: GraphicsSettings) -&gt; None:
+        &quot;&quot;&quot;Toggle an independent feature on/off.&quot;&quot;&quot;
+        independent_features = {
+            GraphicsSettings.VSYNC,
+            GraphicsSettings.HDR,
+            GraphicsSettings.RAY_TRACING,
+            GraphicsSettings.MOTION_BLUR
+        }
+
+        if feature in independent_features:
+            self.graphics ^= feature
+
+    def get_performance_impact(self) -&gt; str:
+        &quot;&quot;&quot;Estimate performance impact of current settings.&quot;&quot;&quot;
+        impact_score = 0
+
+        # Quality impact
+        if self.graphics &amp; GraphicsSettings.QUALITY_ULTRA:
+            impact_score += 4
+        elif self.graphics &amp; GraphicsSettings.QUALITY_HIGH:
+            impact_score += 3
+        elif self.graphics &amp; GraphicsSettings.QUALITY_MEDIUM:
+            impact_score += 2
+        else:
+            impact_score += 1
+
+        # Anti-aliasing impact
+        if self.graphics &amp; GraphicsSettings.AA_MSAA_8X:
+            impact_score += 4
+        elif self.graphics &amp; GraphicsSettings.AA_MSAA_4X:
+            impact_score += 3
+        elif self.graphics &amp; GraphicsSettings.AA_MSAA_2X:
+            impact_score += 2
+        elif self.graphics &amp; GraphicsSettings.AA_FXAA:
+            impact_score += 1
+
+        # Feature impact
+        if self.graphics &amp; GraphicsSettings.RAY_TRACING:
+            impact_score += 3
+        if self.graphics &amp; GraphicsSettings.HDR:
+            impact_score += 1
+        if self.graphics &amp; GraphicsSettings.MOTION_BLUR:
+            impact_score += 1
+
+        if impact_score &lt;= 3:
+            return &quot;Low&quot;
+        elif impact_score &lt;= 6:
+            return &quot;Medium&quot;
+        elif impact_score &lt;= 9:
+            return &quot;High&quot;
+        else:
+            return &quot;Very High&quot;
+
+    def get_summary(self) -&gt; dict:
+        &quot;&quot;&quot;Get a summary of current settings.&quot;&quot;&quot;
+        settings = {}
+
+        # Determine quality level
+        for quality in [GraphicsSettings.QUALITY_LOW, GraphicsSettings.QUALITY_MEDIUM,
+                       GraphicsSettings.QUALITY_HIGH, GraphicsSettings.QUALITY_ULTRA]:
+            if self.graphics &amp; quality:
+                settings[&quot;quality&quot;] = quality.name.split(&quot;_&quot;)[1].lower()
+                break
+
+        # Determine scale
+        for scale in [GraphicsSettings.SCALE_50, GraphicsSettings.SCALE_75,
+                     GraphicsSettings.SCALE_100, GraphicsSettings.SCALE_125,
+                     GraphicsSettings.SCALE_150]:
+            if self.graphics &amp; scale:
+                settings[&quot;scale&quot;] = scale.name.split(&quot;_&quot;)[1] + &quot;%&quot;
+                break
+
+        # Determine anti-aliasing
+        for aa in [GraphicsSettings.AA_OFF, GraphicsSettings.AA_FXAA,
+                  GraphicsSettings.AA_MSAA_2X, GraphicsSettings.AA_MSAA_4X,
+                  GraphicsSettings.AA_MSAA_8X]:
+            if self.graphics &amp; aa:
+                settings[&quot;antialiasing&quot;] = aa.name.replace(&quot;AA_&quot;, &quot;&quot;).replace(&quot;_&quot;, &quot; &quot;)
+                break
+
+        # Check features
+        features = []
+        if self.graphics &amp; GraphicsSettings.VSYNC:
+            features.append(&quot;V-Sync&quot;)
+        if self.graphics &amp; GraphicsSettings.HDR:
+            features.append(&quot;HDR&quot;)
+        if self.graphics &amp; GraphicsSettings.RAY_TRACING:
+            features.append(&quot;Ray Tracing&quot;)
+        if self.graphics &amp; GraphicsSettings.MOTION_BLUR:
+            features.append(&quot;Motion Blur&quot;)
+
+        settings[&quot;features&quot;] = features
+        settings[&quot;performance_impact&quot;] = self.get_performance_impact()
+
+        return settings
+
+# Usage example
+def main():
+    config = GameConfig()
+
+    print(&quot;Default settings:&quot;)
+    print(config.get_summary())
+
+    print(&quot;\nApplying ultra preset:&quot;)
+    config.apply_preset(&quot;ultra&quot;)
+    print(config.get_summary())
+
+    print(&quot;\nToggling ray tracing off:&quot;)
+    config.toggle_feature(GraphicsSettings.RAY_TRACING)
+    print(config.get_summary())
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h2 id="network-protocols">Network Protocols<a class="headerlink" href="#network-protocols" title="Permanent link">&para;</a></h2>
+<h3 id="connection-manager">Connection Manager<a class="headerlink" href="#connection-manager" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">import socket
+import ssl
+from enum import auto
+
+from highlander import ExFlag
+
+class ConnectionFlags(ExFlag):
+    # Protocol versions (mutually exclusive)
+    IPV4 = auto()
+    IPV6 = auto()
+    DUAL_STACK = auto(), (IPV4, IPV6)
+
+    # Security levels (mutually exclusive)
+    PLAINTEXT = auto()
+    TLS_1_2 = auto()
+    TLS_1_3 = auto(), (PLAINTEXT, TLS_1_2)
+
+    # Connection modes (mutually exclusive)
+    BLOCKING = auto()
+    NON_BLOCKING = auto()
+    ASYNC = auto(), (BLOCKING, NON_BLOCKING)
+
+    # Features (independent)
+    COMPRESSION = auto()
+    KEEPALIVE = auto()
+    NAGLE_DISABLED = auto()
+    BUFFER_OPTIMIZATION = auto()
+
+class NetworkConnection:
+    def __init__(self, host: str, port: int, flags: ConnectionFlags = None):
+        self.host = host
+        self.port = port
+        self.flags = flags or (ConnectionFlags.IPV4 |
+                              ConnectionFlags.TLS_1_3 |
+                              ConnectionFlags.NON_BLOCKING)
+        self.socket = None
+        self.ssl_context = None
+
+    def _create_socket(self) -&gt; socket.socket:
+        &quot;&quot;&quot;Create socket based on flags.&quot;&quot;&quot;
+        if self.flags &amp; ConnectionFlags.IPV6:
+            family = socket.AF_INET6
+        elif self.flags &amp; ConnectionFlags.DUAL_STACK:
+            family = socket.AF_INET6
+        else:
+            family = socket.AF_INET
+
+        sock = socket.socket(family, socket.SOCK_STREAM)
+
+        # Apply socket options based on flags
+        if self.flags &amp; ConnectionFlags.KEEPALIVE:
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+
+        if self.flags &amp; ConnectionFlags.NAGLE_DISABLED:
+            sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+
+        if self.flags &amp; ConnectionFlags.NON_BLOCKING:
+            sock.setblocking(False)
+
+        return sock
+
+    def _create_ssl_context(self) -&gt; ssl.SSLContext:
+        &quot;&quot;&quot;Create SSL context based on flags.&quot;&quot;&quot;
+        if self.flags &amp; ConnectionFlags.PLAINTEXT:
+            return None
+
+        if self.flags &amp; ConnectionFlags.TLS_1_3:
+            context = ssl.create_default_context()
+            context.minimum_version = ssl.TLSVersion.TLSv1_3
+        elif self.flags &amp; ConnectionFlags.TLS_1_2:
+            context = ssl.create_default_context()
+            context.minimum_version = ssl.TLSVersion.TLSv1_2
+        else:
+            context = ssl.create_default_context()
+
+        return context
+
+    def connect(self) -&gt; bool:
+        &quot;&quot;&quot;Establish connection with configured flags.&quot;&quot;&quot;
+        try:
+            self.socket = self._create_socket()
+
+            # Connect to remote host
+            if self.flags &amp; ConnectionFlags.DUAL_STACK:
+                # Try IPv6 first, fallback to IPv4
+                try:
+                    self.socket.connect((self.host, self.port))
+                except (socket.gaierror, ConnectionRefusedError):
+                    self.socket.close()
+                    self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    self.socket.connect((self.host, self.port))
+            else:
+                self.socket.connect((self.host, self.port))
+
+            # Wrap with SSL if needed
+            if not (self.flags &amp; ConnectionFlags.PLAINTEXT):
+                self.ssl_context = self._create_ssl_context()
+                self.socket = self.ssl_context.wrap_socket(
+                    self.socket, server_hostname=self.host
+                )
+
+            return True
+
+        except Exception as e:
+            print(f&quot;Connection failed: {e}&quot;)
+            if self.socket:
+                self.socket.close()
+            return False
+
+    def get_connection_info(self) -&gt; dict:
+        &quot;&quot;&quot;Get information about the current connection.&quot;&quot;&quot;
+        info = {
+            &quot;host&quot;: self.host,
+            &quot;port&quot;: self.port,
+            &quot;protocol&quot;: &quot;IPv6&quot; if self.flags &amp; ConnectionFlags.IPV6 else &quot;IPv4&quot;,
+            &quot;security&quot;: &quot;TLS 1.3&quot; if self.flags &amp; ConnectionFlags.TLS_1_3 else
+                       &quot;TLS 1.2&quot; if self.flags &amp; ConnectionFlags.TLS_1_2 else &quot;Plaintext&quot;,
+            &quot;mode&quot;: &quot;Async&quot; if self.flags &amp; ConnectionFlags.ASYNC else
+                   &quot;Non-blocking&quot; if self.flags &amp; ConnectionFlags.NON_BLOCKING else &quot;Blocking&quot;,
+            &quot;features&quot;: []
+        }
+
+        if self.flags &amp; ConnectionFlags.COMPRESSION:
+            info[&quot;features&quot;].append(&quot;Compression&quot;)
+        if self.flags &amp; ConnectionFlags.KEEPALIVE:
+            info[&quot;features&quot;].append(&quot;Keep-Alive&quot;)
+        if self.flags &amp; ConnectionFlags.NAGLE_DISABLED:
+            info[&quot;features&quot;].append(&quot;Nagle Disabled&quot;)
+        if self.flags &amp; ConnectionFlags.BUFFER_OPTIMIZATION:
+            info[&quot;features&quot;].append(&quot;Buffer Optimization&quot;)
+
+        return info
+
+# Usage example
+def main():
+    # Create secure connection with compression
+    flags = (ConnectionFlags.IPV4 |
+             ConnectionFlags.TLS_1_3 |
+             ConnectionFlags.NON_BLOCKING |
+             ConnectionFlags.COMPRESSION |
+             ConnectionFlags.KEEPALIVE)
+
+    conn = NetworkConnection(&quot;example.com&quot;, 443, flags)
+
+    print(&quot;Connection configuration:&quot;)
+    print(conn.get_connection_info())
+
+    # Connection will be resolved automatically - TLS_1_3 wins over conflicting options
+    print(f&quot;Active flags: {conn.flags}&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h2 id="file-processing">File Processing<a class="headerlink" href="#file-processing" title="Permanent link">&para;</a></h2>
+<h3 id="file-processor-with-multiple-modes">File Processor with Multiple Modes<a class="headerlink" href="#file-processor-with-multiple-modes" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">import gzip
+import json
+import os
+from pathlib import Path
+from typing import List, Dict, Any
+
+from highlander import OptionsFlag
+
+class ProcessorOptions(OptionsFlag):
+    # Verbosity (mutually exclusive)
+    SILENT = 1, [&quot;s&quot;, &quot;silent&quot;], &quot;No output except errors&quot;
+    NORMAL = 2, [&quot;n&quot;, &quot;normal&quot;], &quot;Standard output&quot;
+    VERBOSE = 4, [&quot;v&quot;, &quot;verbose&quot;], &quot;Detailed output&quot;
+    DEBUG = 8, [&quot;d&quot;, &quot;debug&quot;], &quot;Debug output&quot;, (SILENT, NORMAL, VERBOSE)
+
+    # Processing modes (mutually exclusive)
+    FAST = 16, [&quot;f&quot;, &quot;fast&quot;], &quot;Fast processing (may skip some optimizations)&quot;
+    BALANCED = 32, [&quot;b&quot;, &quot;balanced&quot;], &quot;Balanced speed/quality&quot;
+    THOROUGH = 64, [&quot;t&quot;, &quot;thorough&quot;], &quot;Thorough processing&quot;, (FAST, BALANCED)
+
+    # Output formats (mutually exclusive)
+    JSON_OUTPUT = 128, [&quot;json&quot;], &quot;Output in JSON format&quot;
+    XML_OUTPUT = 256, [&quot;xml&quot;], &quot;Output in XML format&quot;
+    CSV_OUTPUT = 512, [&quot;csv&quot;], &quot;Output in CSV format&quot;
+    PLAIN_OUTPUT = 1024, [&quot;plain&quot;], &quot;Plain text output&quot;, (JSON_OUTPUT, XML_OUTPUT, CSV_OUTPUT)
+
+    # Features (independent)
+    BACKUP = 2048, [&quot;backup&quot;], &quot;Create backup files&quot;
+    COMPRESS = 4096, [&quot;compress&quot;], &quot;Compress output files&quot;
+    VALIDATE = 8192, [&quot;validate&quot;], &quot;Validate input files&quot;
+    PARALLEL = 16384, [&quot;parallel&quot;], &quot;Use parallel processing&quot;
+
+class FileProcessor:
+    def __init__(self, options: ProcessorOptions = None):
+        self.options = options or (ProcessorOptions.NORMAL |
+                                  ProcessorOptions.BALANCED |
+                                  ProcessorOptions.JSON_OUTPUT)
+        self.processed_files: List[Path] = []
+        self.errors: List[str] = []
+        self.stats = {
+            &quot;files_processed&quot;: 0,
+            &quot;files_skipped&quot;: 0,
+            &quot;total_size&quot;: 0,
+            &quot;processing_time&quot;: 0
+        }
+
+    def _log(self, message: str, level: str = &quot;info&quot;) -&gt; None:
+        &quot;&quot;&quot;Log message based on verbosity settings.&quot;&quot;&quot;
+        if self.options &amp; ProcessorOptions.SILENT and level != &quot;error&quot;:
+            return
+
+        if level == &quot;debug&quot; and not (self.options &amp; ProcessorOptions.DEBUG):
+            return
+
+        if level == &quot;verbose&quot; and not (self.options &amp; (ProcessorOptions.VERBOSE | ProcessorOptions.DEBUG)):
+            return
+
+        prefix = {
+            &quot;error&quot;: &quot;ERROR: &quot;,
+            &quot;debug&quot;: &quot;DEBUG: &quot;,
+            &quot;verbose&quot;: &quot;VERBOSE: &quot;,
+            &quot;info&quot;: &quot;&quot;
+        }.get(level, &quot;&quot;)
+
+        print(f&quot;{prefix}{message}&quot;)
+
+    def _create_backup(self, file_path: Path) -&gt; bool:
+        &quot;&quot;&quot;Create backup file if backup option is enabled.&quot;&quot;&quot;
+        if not (self.options &amp; ProcessorOptions.BACKUP):
+            return True
+
+        try:
+            backup_path = file_path.with_suffix(f&quot;{file_path.suffix}.bak&quot;)
+            backup_path.write_bytes(file_path.read_bytes())
+            self._log(f&quot;Created backup: {backup_path}&quot;, &quot;verbose&quot;)
+            return True
+        except Exception as e:
+            self._log(f&quot;Failed to create backup for {file_path}: {e}&quot;, &quot;error&quot;)
+            return False
+
+    def _validate_file(self, file_path: Path) -&gt; bool:
+        &quot;&quot;&quot;Validate input file if validation is enabled.&quot;&quot;&quot;
+        if not (self.options &amp; ProcessorOptions.VALIDATE):
+            return True
+
+        try:
+            # Simple validation - check if file is readable and not empty
+            if not file_path.exists():
+                raise FileNotFoundError(f&quot;File not found: {file_path}&quot;)
+
+            if file_path.stat().st_size == 0:
+                raise ValueError(f&quot;File is empty: {file_path}&quot;)
+
+            # Try to read first few bytes
+            with open(file_path, 'rb') as f:
+                f.read(1024)
+
+            self._log(f&quot;Validated: {file_path}&quot;, &quot;debug&quot;)
+            return True
+
+        except Exception as e:
+            self._log(f&quot;Validation failed for {file_path}: {e}&quot;, &quot;error&quot;)
+            return False
+
+    def _process_file_content(self, content: str, file_path: Path) -&gt; Dict[str, Any]:
+        &quot;&quot;&quot;Process file content based on processing mode.&quot;&quot;&quot;
+        result = {
+            &quot;file&quot;: str(file_path),
+            &quot;size&quot;: len(content),
+            &quot;lines&quot;: len(content.splitlines())
+        }
+
+        if self.options &amp; ProcessorOptions.FAST:
+            # Fast processing - minimal analysis
+            result[&quot;word_count&quot;] = len(content.split())
+
+        elif self.options &amp; ProcessorOptions.BALANCED:
+            # Balanced processing - moderate analysis
+            lines = content.splitlines()
+            result.update({
+                &quot;word_count&quot;: len(content.split()),
+                &quot;non_empty_lines&quot;: len([l for l in lines if l.strip()]),
+                &quot;average_line_length&quot;: sum(len(l) for l in lines) / len(lines) if lines else 0
+            })
+
+        elif self.options &amp; ProcessorOptions.THOROUGH:
+            # Thorough processing - detailed analysis
+            lines = content.splitlines()
+            words = content.split()
+
+            result.update({
+                &quot;word_count&quot;: len(words),
+                &quot;non_empty_lines&quot;: len([l for l in lines if l.strip()]),
+                &quot;average_line_length&quot;: sum(len(l) for l in lines) / len(lines) if lines else 0,
+                &quot;unique_words&quot;: len(set(word.lower().strip('.,!?&quot;;') for word in words)),
+                &quot;character_frequency&quot;: dict(sorted(
+                    {char: content.lower().count(char) for char in set(content.lower())}.items(),
+                    key=lambda x: x[1], reverse=True
+                )[:10])  # Top 10 characters
+            })
+
+        return result
+
+    def _format_output(self, results: List[Dict[str, Any]]) -&gt; str:
+        &quot;&quot;&quot;Format results based on output format option.&quot;&quot;&quot;
+        if self.options &amp; ProcessorOptions.JSON_OUTPUT:
+            return json.dumps(results, indent=2)
+
+        elif self.options &amp; ProcessorOptions.XML_OUTPUT:
+            xml_lines = ['&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;', '&lt;results&gt;']
+            for result in results:
+                xml_lines.append('  &lt;file&gt;')
+                for key, value in result.items():
+                    if isinstance(value, dict):
+                        xml_lines.append(f'    &lt;{key}&gt;')
+                        for k, v in value.items():
+                            xml_lines.append(f'      &lt;{k}&gt;{v}&lt;/{k}&gt;')
+                        xml_lines.append(f'    &lt;/{key}&gt;')
+                    else:
+                        xml_lines.append(f'    &lt;{key}&gt;{value}&lt;/{key}&gt;')
+                xml_lines.append('  &lt;/file&gt;')
+            xml_lines.append('&lt;/results&gt;')
+            return '\n'.join(xml_lines)
+
+        elif self.options &amp; ProcessorOptions.CSV_OUTPUT:
+            if not results:
+                return &quot;&quot;
+
+            # Get all possible keys
+            all_keys = set()
+            for result in results:
+                all_keys.update(result.keys())
+
+            # Filter out nested dictionaries for CSV
+            simple_keys = [k for k in all_keys if not isinstance(results[0].get(k), dict)]
+
+            csv_lines = [','.join(simple_keys)]
+            for result in results:
+                values = [str(result.get(k, '')) for k in simple_keys]
+                csv_lines.append(','.join(values))
+            return '\n'.join(csv_lines)
+
+        else:  # PLAIN_OUTPUT
+            output_lines = []
+            for result in results:
+                output_lines.append(f&quot;File: {result['file']}&quot;)
+                for key, value in result.items():
+                    if key != 'file' and not isinstance(value, dict):
+                        output_lines.append(f&quot;  {key}: {value}&quot;)
+                output_lines.append(&quot;&quot;)  # Empty line between files
+            return '\n'.join(output_lines)
+
+    def _write_output(self, content: str, output_path: Path) -&gt; None:
+        &quot;&quot;&quot;Write output content, optionally compressed.&quot;&quot;&quot;
+        try:
+            if self.options &amp; ProcessorOptions.COMPRESS:
+                # Write compressed output
+                compressed_path = output_path.with_suffix(f&quot;{output_path.suffix}.gz&quot;)
+                with gzip.open(compressed_path, 'wt', encoding='utf-8') as f:
+                    f.write(content)
+                self._log(f&quot;Compressed output written to: {compressed_path}&quot;, &quot;verbose&quot;)
+            else:
+                # Write regular output
+                output_path.write_text(content, encoding='utf-8')
+                self._log(f&quot;Output written to: {output_path}&quot;, &quot;verbose&quot;)
+
+        except Exception as e:
+            self._log(f&quot;Failed to write output: {e}&quot;, &quot;error&quot;)
+
+    def process_files(self, input_files: List[Path], output_path: Path = None) -&gt; Dict[str, Any]:
+        &quot;&quot;&quot;Process a list of input files.&quot;&quot;&quot;
+        import time
+
+        start_time = time.time()
+        results = []
+
+        self._log(f&quot;Processing {len(input_files)} files with options: {self.options}&quot;)
+
+        for file_path in input_files:
+            try:
+                self._log(f&quot;Processing: {file_path}&quot;, &quot;verbose&quot;)
+
+                # Validate file if enabled
+                if not self._validate_file(file_path):
+                    self.stats[&quot;files_skipped&quot;] += 1
+                    continue
+
+                # Create backup if enabled
+                if not self._create_backup(file_path):
+                    self.stats[&quot;files_skipped&quot;] += 1
+                    continue
+
+                # Read and process file content
+                content = file_path.read_text(encoding='utf-8')
+                result = self._process_file_content(content, file_path)
+                results.append(result)
+
+                self.stats[&quot;files_processed&quot;] += 1
+                self.stats[&quot;total_size&quot;] += len(content)
+                self.processed_files.append(file_path)
+
+                self._log(f&quot;Completed: {file_path} ({len(content)} bytes)&quot;, &quot;debug&quot;)
+
+            except Exception as e:
+                error_msg = f&quot;Failed to process {file_path}: {e}&quot;
+                self._log(error_msg, &quot;error&quot;)
+                self.errors.append(error_msg)
+                self.stats[&quot;files_skipped&quot;] += 1
+
+        # Write output if specified
+        if output_path and results:
+            formatted_output = self._format_output(results)
+            self._write_output(formatted_output, output_path)
+
+        self.stats[&quot;processing_time&quot;] = time.time() - start_time
+
+        # Print summary
+        self._log(f&quot;Processing complete:&quot;, &quot;info&quot;)
+        self._log(f&quot;  Files processed: {self.stats['files_processed']}&quot;, &quot;info&quot;)
+        self._log(f&quot;  Files skipped: {self.stats['files_skipped']}&quot;, &quot;info&quot;)
+        self._log(f&quot;  Total size: {self.stats['total_size']} bytes&quot;, &quot;info&quot;)
+        self._log(f&quot;  Processing time: {self.stats['processing_time']:.2f} seconds&quot;, &quot;info&quot;)
+
+        return {
+            &quot;results&quot;: results,
+            &quot;stats&quot;: self.stats,
+            &quot;errors&quot;: self.errors
+        }
+
+# Usage example
+def main():
+    # Create some test files
+    test_dir = Path(&quot;test_files&quot;)
+    test_dir.mkdir(exist_ok=True)
+
+    test_files = []
+    for i in range(3):
+        test_file = test_dir / f&quot;test_{i}.txt&quot;
+        test_file.write_text(f&quot;This is test file {i}\n&quot; * (10 + i * 5))
+        test_files.append(test_file)
+
+    # Configure processor with thorough processing, validation, backup, and JSON output
+    options = (ProcessorOptions.VERBOSE |
+              ProcessorOptions.THOROUGH |
+              ProcessorOptions.JSON_OUTPUT |
+              ProcessorOptions.VALIDATE |
+              ProcessorOptions.BACKUP |
+              ProcessorOptions.COMPRESS)
+
+    processor = FileProcessor(options)
+
+    # Process files
+    output_path = Path(&quot;results.json&quot;)
+    result = processor.process_files(test_files, output_path)
+
+    print(f&quot;\nProcessing results:&quot;)
+    print(f&quot;Successfully processed: {len(result['results'])} files&quot;)
+    print(f&quot;Errors: {len(result['errors'])}&quot;)
+
+    # Clean up test files
+    import shutil
+    shutil.rmtree(test_dir)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h2 id="web-server-settings">Web Server Settings<a class="headerlink" href="#web-server-settings" title="Permanent link">&para;</a></h2>
+<h3 id="http-server-configuration">HTTP Server Configuration<a class="headerlink" href="#http-server-configuration" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from highlander import ExFlag
+from typing import Dict, Any
+import ssl
+
+class ServerFlags(ExFlag):
+    # HTTP versions (mutually exclusive)
+    HTTP_1_0 = 1
+    HTTP_1_1 = 2
+    HTTP_2 = 4
+    HTTP_3 = 8, (HTTP_1_0, HTTP_1_1, HTTP_2)
+
+    # SSL/TLS versions (mutually exclusive)
+    NO_SSL = 16
+    TLS_1_2 = 32
+    TLS_1_3 = 64, (NO_SSL, TLS_1_2)
+
+    # Compression (mutually exclusive)
+    NO_COMPRESSION = 128
+    GZIP = 256
+    BROTLI = 512, (NO_COMPRESSION, GZIP)
+
+    # Security features (independent)
+    HSTS = 1024
+    CSP = 2048
+    CORS = 4096
+    RATE_LIMITING = 8192
+
+    # Performance features (independent)
+    CACHING = 16384
+    CONNECTION_POOLING = 32768
+    LOAD_BALANCING = 65536
+
+class WebServer:
+    def __init__(self, name: str, port: int, flags: ServerFlags = None):
+        self.name = name
+        self.port = port
+        self.flags = flags or (ServerFlags.HTTP_1_1 |
+                              ServerFlags.TLS_1_3 |
+                              ServerFlags.GZIP |
+                              ServerFlags.CACHING)
+
+    def get_configuration(self) -&gt; Dict[str, Any]:
+        &quot;&quot;&quot;Get server configuration based on flags.&quot;&quot;&quot;
+        config = {
+            &quot;server_name&quot;: self.name,
+            &quot;port&quot;: self.port,
+            &quot;protocols&quot;: [],
+            &quot;security&quot;: {},
+            &quot;compression&quot;: &quot;none&quot;,
+            &quot;features&quot;: []
+        }
+
+        # Determine HTTP version
+        if self.flags &amp; ServerFlags.HTTP_3:
+            config[&quot;protocols&quot;] = [&quot;HTTP/3&quot;, &quot;HTTP/2&quot;, &quot;HTTP/1.1&quot;]
+        elif self.flags &amp; ServerFlags.HTTP_2:
+            config[&quot;protocols&quot;] = [&quot;HTTP/2&quot;, &quot;HTTP/1.1&quot;]
+        elif self.flags &amp; ServerFlags.HTTP_1_1:
+            config[&quot;protocols&quot;] = [&quot;HTTP/1.1&quot;]
+        elif self.flags &amp; ServerFlags.HTTP_1_0:
+            config[&quot;protocols&quot;] = [&quot;HTTP/1.0&quot;]
+
+        # Determine SSL/TLS
+        if self.flags &amp; ServerFlags.TLS_1_3:
+            config[&quot;security&quot;][&quot;tls_version&quot;] = &quot;1.3&quot;
+            config[&quot;security&quot;][&quot;ssl_enabled&quot;] = True
+        elif self.flags &amp; ServerFlags.TLS_1_2:
+            config[&quot;security&quot;][&quot;tls_version&quot;] = &quot;1.2&quot;
+            config[&quot;security&quot;][&quot;ssl_enabled&quot;] = True
+        else:
+            config[&quot;security&quot;][&quot;ssl_enabled&quot;] = False
+
+        # Security features
+        if self.flags &amp; ServerFlags.HSTS:
+            config[&quot;security&quot;][&quot;hsts&quot;] = True
+        if self.flags &amp; ServerFlags.CSP:
+            config[&quot;security&quot;][&quot;csp&quot;] = True
+        if self.flags &amp; ServerFlags.CORS:
+            config[&quot;security&quot;][&quot;cors&quot;] = True
+        if self.flags &amp; ServerFlags.RATE_LIMITING:
+            config[&quot;security&quot;][&quot;rate_limiting&quot;] = True
+
+        # Compression
+        if self.flags &amp; ServerFlags.BROTLI:
+            config[&quot;compression&quot;] = &quot;brotli&quot;
+        elif self.flags &amp; ServerFlags.GZIP:
+            config[&quot;compression&quot;] = &quot;gzip&quot;
+
+        # Performance features
+        if self.flags &amp; ServerFlags.CACHING:
+            config[&quot;features&quot;].append(&quot;caching&quot;)
+        if self.flags &amp; ServerFlags.CONNECTION_POOLING:
+            config[&quot;features&quot;].append(&quot;connection_pooling&quot;)
+        if self.flags &amp; ServerFlags.LOAD_BALANCING:
+            config[&quot;features&quot;].append(&quot;load_balancing&quot;)
+
+        return config
+
+    def generate_nginx_config(self) -&gt; str:
+        &quot;&quot;&quot;Generate nginx configuration based on flags.&quot;&quot;&quot;
+        config_lines = [
+            &quot;server {&quot;,
+            f&quot;    listen {self.port};&quot;,
+            f&quot;    server_name {self.name};&quot;,
+            &quot;&quot;
+        ]
+
+        # SSL configuration
+        if self.flags &amp; (ServerFlags.TLS_1_2 | ServerFlags.TLS_1_3):
+            config_lines.extend([
+                f&quot;    listen {self.port} ssl;&quot;,
+                &quot;    ssl_certificate /path/to/cert.pem;&quot;,
+                &quot;    ssl_certificate_key /path/to/key.pem;&quot;,
+            ])
+
+            if self.flags &amp; ServerFlags.TLS_1_3:
+                config_lines.append(&quot;    ssl_protocols TLSv1.3;&quot;)
+            elif self.flags &amp; ServerFlags.TLS_1_2:
+                config_lines.append(&quot;    ssl_protocols TLSv1.2 TLSv1.3;&quot;)
+
+        # HTTP version support
+        if self.flags &amp; ServerFlags.HTTP_2:
+            config_lines.append(&quot;    http2 on;&quot;)
+
+        # Compression
+        if self.flags &amp; ServerFlags.GZIP:
+            config_lines.extend([
+                &quot;    gzip on;&quot;,
+                &quot;    gzip_types text/plain application/json text/css;&quot;,
+            ])
+        elif self.flags &amp; ServerFlags.BROTLI:
+            config_lines.extend([
+                &quot;    brotli on;&quot;,
+                &quot;    brotli_types text/plain application/json text/css;&quot;,
+            ])
+
+        # Security headers
+        if self.flags &amp; ServerFlags.HSTS:
+            config_lines.append(&quot;    add_header Strict-Transport-Security \&quot;max-age=31536000\&quot;;&quot;)
+
+        if self.flags &amp; ServerFlags.CSP:
+            config_lines.append(&quot;    add_header Content-Security-Policy \&quot;default-src 'self'\&quot;;&quot;)
+
+        if self.flags &amp; ServerFlags.CORS:
+            config_lines.append(&quot;    add_header Access-Control-Allow-Origin \&quot;*\&quot;;&quot;)
+
+        # Rate limiting
+        if self.flags &amp; ServerFlags.RATE_LIMITING:
+            config_lines.append(&quot;    limit_req zone=api burst=20 nodelay;&quot;)
+
+        # Caching
+        if self.flags &amp; ServerFlags.CACHING:
+            config_lines.extend([
+                &quot;    location ~* \\.(jpg|jpeg|png|gif|ico|css|js)$ {&quot;,
+                &quot;        expires 1y;&quot;,
+                &quot;        add_header Cache-Control \&quot;public\&quot;;&quot;,
+                &quot;    }&quot;,
+            ])
+
+        config_lines.append(&quot;}&quot;)
+        return &quot;\n&quot;.join(config_lines)
+
+    def get_performance_score(self) -&gt; int:
+        &quot;&quot;&quot;Calculate performance score based on configuration.&quot;&quot;&quot;
+        score = 0
+
+        # HTTP version benefits
+        if self.flags &amp; ServerFlags.HTTP_3:
+            score += 40
+        elif self.flags &amp; ServerFlags.HTTP_2:
+            score += 30
+        elif self.flags &amp; ServerFlags.HTTP_1_1:
+            score += 20
+        else:
+            score += 10
+
+        # Compression benefits
+        if self.flags &amp; ServerFlags.BROTLI:
+            score += 25
+        elif self.flags &amp; ServerFlags.GZIP:
+            score += 15
+
+        # Caching benefit
+        if self.flags &amp; ServerFlags.CACHING:
+            score += 20
+
+        # Connection pooling benefit
+        if self.flags &amp; ServerFlags.CONNECTION_POOLING:
+            score += 10
+
+        # Load balancing benefit
+        if self.flags &amp; ServerFlags.LOAD_BALANCING:
+            score += 15
+
+        return min(score, 100)  # Cap at 100
+
+# Usage example
+def main():
+    # Create a high-performance secure server
+    server = WebServer(
+        &quot;api.example.com&quot;,
+        443,
+        ServerFlags.HTTP_2 |
+        ServerFlags.TLS_1_3 |
+        ServerFlags.BROTLI |
+        ServerFlags.HSTS |
+        ServerFlags.CSP |
+        ServerFlags.RATE_LIMITING |
+        ServerFlags.CACHING |
+        ServerFlags.CONNECTION_POOLING
+    )
+
+    print(&quot;Server Configuration:&quot;)
+    config = server.get_configuration()
+    for key, value in config.items():
+        print(f&quot;  {key}: {value}&quot;)
+
+    print(f&quot;\nPerformance Score: {server.get_performance_score()}/100&quot;)
+
+    print(f&quot;\nNginx Configuration:&quot;)
+    print(server.generate_nginx_config())
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<h2 id="advanced-patterns">Advanced Patterns<a class="headerlink" href="#advanced-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="state-machine-with-exclusions">State Machine with Exclusions<a class="headerlink" href="#state-machine-with-exclusions" title="Permanent link">&para;</a></h3>
+<pre><code class="language-python">from typing import Set, Dict, Callable
+
+from highlander import ExFlag, STRICT
+
+class WorkflowState(ExFlag, conflict=STRICT):
+    # Initial states (mutually exclusive)
+    CREATED = 1
+    INITIALIZED = 2, (CREATED,)
+
+    # Processing states (mutually exclusive with initial and final)
+    PROCESSING = 4
+    PAUSED = 8
+    RETRYING = 16, (CREATED, INITIALIZED, PROCESSING, PAUSED)
+
+    # Final states (mutually exclusive with all others)
+    COMPLETED = 32
+    FAILED = 64
+    CANCELLED = 128, (CREATED, INITIALIZED, PROCESSING, PAUSED, RETRYING, COMPLETED, FAILED)
+WorkflowState
+
+class WorkflowStateMachine:
+    def __init__(self, workflow_id: str):
+        self.workflow_id = workflow_id
+        self.current_state = WorkflowState.CREATED
+        self.state_history: List[WorkflowState] = [self.current_state]
+
+        # Define valid transitions
+        self.valid_transitions: Dict[WorkflowState, Set[WorkflowState]] = {
+            WorkflowState.CREATED: {WorkflowState.INITIALIZED, WorkflowState.CANCELLED},
+            WorkflowState.INITIALIZED: {WorkflowState.PROCESSING, WorkflowState.CANCELLED},
+            WorkflowState.PROCESSING: {WorkflowState.COMPLETED, WorkflowState.FAILED,
+                                     WorkflowState.PAUSED, WorkflowState.CANCELLED},
+            WorkflowState.PAUSED: {WorkflowState.PROCESSING, WorkflowState.CANCELLED},
+            WorkflowState.RETRYING: {WorkflowState.PROCESSING, WorkflowState.FAILED,
+                                   WorkflowState.CANCELLED},
+            WorkflowState.COMPLETED: set(),  # Terminal state
+            WorkflowState.FAILED: {WorkflowState.RETRYING, WorkflowState.CANCELLED},
+            WorkflowState.CANCELLED: set()   # Terminal state
+        }
+
+        # State handlers
+        self.state_handlers: Dict[WorkflowState, Callable] = {
+            WorkflowState.INITIALIZED: self._on_initialized,
+            WorkflowState.PROCESSING: self._on_processing,
+            WorkflowState.PAUSED: self._on_paused,
+            WorkflowState.RETRYING: self._on_retrying,
+            WorkflowState.COMPLETED: self._on_completed,
+            WorkflowState.FAILED: self._on_failed,
+            WorkflowState.CANCELLED: self._on_cancelled
+        }
+
+    def transition_to(self, new_state: WorkflowState) -&gt; bool:
+        &quot;&quot;&quot;Attempt to transition to a new state.&quot;&quot;&quot;
+        try:
+            # Check if transition is valid
+            if new_state not in self.valid_transitions[self.current_state]:
+                raise ValueError(f&quot;Invalid transition from {self.current_state} to {new_state}&quot;)
+
+            # Attempt the state change (will raise if exclusions conflict)
+            test_state = self.current_state | new_state
+
+            # If we get here, transition is valid
+            old_state = self.current_state
+            self.current_state = new_state
+            self.state_history.append(new_state)
+
+            print(f&quot;Workflow {self.workflow_id}: {old_state} → {new_state}&quot;)
+
+            # Execute state handler
+            if new_state in self.state_handlers:
+                self.state_handlers[new_state]()
+
+            return True
+
+        except (ValueError, TypeError) as e:
+            print(f&quot;Transition failed: {e}&quot;)
+            return False
+
+    def _on_initialized(self):
+        print(f&quot;  Workflow {self.workflow_id} initialized and ready for processing&quot;)
+
+    def _on_processing(self):
+        print(f&quot;  Workflow {self.workflow_id} is now processing&quot;)
+
+    def _on_paused(self):
+        print(f&quot;  Workflow {self.workflow_id} has been paused&quot;)
+
+    def _on_retrying(self):
+        print(f&quot;  Workflow {self.workflow_id} is retrying after failure&quot;)
+
+    def _on_completed(self):
+        print(f&quot;  Workflow {self.workflow_id} completed successfully&quot;)
+
+    def _on_failed(self):
+        print(f&quot;  Workflow {self.workflow_id} failed&quot;)
+
+    def _on_cancelled(self):
+        print(f&quot;  Workflow {self.workflow_id} was cancelled&quot;)
+
+    def get_available_transitions(self) -&gt; Set[WorkflowState]:
+        &quot;&quot;&quot;Get states that can be transitioned to from current state.&quot;&quot;&quot;
+        return self.valid_transitions[self.current_state]
+
+    def is_terminal(self) -&gt; bool:
+        &quot;&quot;&quot;Check if current state is terminal.&quot;&quot;&quot;
+        return len(self.valid_transitions[self.current_state]) == 0
+
+    def get_state_summary(self) -&gt; Dict[str, Any]:
+        &quot;&quot;&quot;Get summary of current state machine.&quot;&quot;&quot;
+        return {
+            &quot;workflow_id&quot;: self.workflow_id,
+            &quot;current_state&quot;: self.current_state.name,
+            &quot;is_terminal&quot;: self.is_terminal(),
+            &quot;available_transitions&quot;: [state.name for state in self.get_available_transitions()],
+            &quot;state_history&quot;: [state.name for state in self.state_history]
+        }
+
+# Usage example
+def main():
+    # Create a workflow
+    workflow = WorkflowStateMachine(&quot;WF-001&quot;)
+
+    print(&quot;Initial state:&quot;)
+    print(workflow.get_state_summary())
+    print()
+
+    # Execute a typical workflow
+    transitions = [
+        WorkflowState.INITIALIZED,
+        WorkflowState.PROCESSING,
+        WorkflowState.PAUSED,
+        WorkflowState.PROCESSING,
+        WorkflowState.COMPLETED
+    ]
+
+    for next_state in transitions:
+        success = workflow.transition_to(next_state)
+        if not success:
+            print(&quot;Workflow execution stopped due to invalid transition&quot;)
+            break
+        print(f&quot;Available next states: {[s.name for s in workflow.get_available_transitions()]}&quot;)
+        print()
+
+    print(&quot;Final state:&quot;)
+    print(workflow.get_state_summary())
+
+    # Demonstrate invalid transition attempt
+    print(&quot;\nAttempting invalid transition from terminal state:&quot;)
+    workflow.transition_to(WorkflowState.PROCESSING)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<p>These examples demonstrate the power and flexibility of Highlander Enum across various domains. Each example shows different aspects:</p>
+<ol>
+<li><strong>Mutual exclusion</strong> ensuring only one option from conflicting groups can be active</li>
+<li><strong>Conflict resolution</strong> handling what happens when conflicts occur</li>
+<li><strong>Rich metadata</strong> with <code>OptionsFlag</code> for building user interfaces</li>
+<li><strong>Complex state management</strong> with multiple exclusion groups</li>
+<li><strong>Integration patterns</strong> with existing libraries and frameworks</li>
+<li><strong>Type safety</strong> and IDE support throughout</li>
+</ol>
+<p>The key takeaway is that Highlander Enum provides a robust foundation for managing complex flag relationships while maintaining clean, readable code.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Maintained by Nathan Florea.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/florean/highlander-enum" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://pypi.org/project/highlander-enum" target="_blank" rel="noopener" title="pypi.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://bsky.app/florean" target="_blank" rel="noopener" title="bsky.app" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3M288 227.1c-26.1-50.7-97.1-145.2-163.1-191.8C61.6-9.4 37.5-1.7 21.6 5.5 3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7 3.3-.5 6.6-.9 10-1.4-3.3.5-6.6 1-10 1.4-93.9 14-177.3 48.2-67.9 169.9C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4 102.4-103.4 28.1-156-65.8-169.9-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3 64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
