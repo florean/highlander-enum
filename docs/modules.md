@@ -16,7 +16,7 @@ The main module containing `ExFlag` and `OptionsFlag` classes.
       group_by_category: true
       show_category_heading: true
 
-## highlander.type  
+## highlander.type
 
 The metaclass and type system supporting Highlander Enum functionality.
 

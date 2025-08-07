@@ -18,7 +18,7 @@ The main class providing mutually exclusive flag behavior with configurable conf
 class ExFlag(IntFlag, metaclass=EnumPlusType)
 ```
 
-**Inherits from:** `enum.IntFlag`  
+**Inherits from:** `enum.IntFlag`
 **Metaclass:** `EnumPlusType`
 
 ### Class Parameters
@@ -34,7 +34,7 @@ class MyFlag(ExFlag, conflict="rhs"):  # or "lhs", "strict"
 
 - `conflict` *(str | ConflictResolution)*: Conflict resolution strategy
   - `"rhs"` or `ConflictResolution.RHS`: Right-hand side wins (default)
-  - `"lhs"` or `ConflictResolution.LHS`: Left-hand side wins  
+  - `"lhs"` or `ConflictResolution.LHS`: Left-hand side wins
   - `"strict"` or `ConflictResolution.STRICT`: Raise ValueError on conflicts
 
 ### Class Attributes
@@ -119,7 +119,7 @@ Set multiple flags as mutually exclusive with each other. This is what is used w
 ```python
 class MyFlag(ExFlag):
     A = 1
-    B = 2  
+    B = 2
     C = 4
 
 MyFlag.add_mutual_exclusions([MyFlag.A, MyFlag.B, MyFlag.C])  # Same as C = 4, [A, B]
@@ -188,7 +188,7 @@ Standard bitwise AND operation (no conflict resolution required).
 ### Reverse Operations
 
 #### `__ror__(self, other)` (other | self)
-#### `__rxor__(self, other)` (other ^ self) 
+#### `__rxor__(self, other)` (other ^ self)
 #### `__rand__(self, other)` (other & self)
 
 Reverse bitwise operations that delegate to their forward counterparts.
@@ -216,7 +216,7 @@ Create new OptionsFlag members with help text, aliases, and exclusions.
 - `value` *(int)*: Integer value for this flag
 - `*args` *(Any)*: Variable arguments in one of these formats:
   - `(help_str,)` - Just help text
-  - `([aliases], help_str)` - Aliases list and help text  
+  - `([aliases], help_str)` - Aliases list and help text
   - `([aliases], help_str, (exclusions,))` - Full specification
   - `(help_str, (exclusions,))` - Help text and exclusions
 
@@ -260,7 +260,7 @@ print(MyOptions.VERBOSE.help)  # "Enable verbose output"
 #### `aliases`
 
 ```python
-@property  
+@property
 def aliases(self) -> list[str]
 ```
 
@@ -289,7 +289,7 @@ Enumeration defining conflict resolution strategies.
 **Values:**
 
 - `RHS`: Right-hand side wins (default)
-- `LHS`: Left-hand side wins  
+- `LHS`: Left-hand side wins
 - `STRICT`: Raises ValueError on conflicts
 
 **Example:**
@@ -364,7 +364,7 @@ Restore original `__new__` methods from `__new_member__` attributes.
 #### `restore_news(replaced_new_methods)`
 
 ```python
-@staticmethod  
+@staticmethod
 def restore_news(replaced_new_methods: dict[type, Callable[..., Any] | None]) -> None
 ```
 
@@ -395,7 +395,7 @@ Traverse base classes to get an ordered list of the inheritance tree.
 ```python
 def rebind_method(
     target_name: str,
-    target_cls: type, 
+    target_cls: type,
     src_method: classmethod | staticmethod | Callable[..., Any] | str,
     src_cls: type | None = None,
 ) -> None
@@ -429,7 +429,7 @@ from highlander import ExFlag
 # Flag instance type
 flag: ExFlag = MyFlag.A
 
-# Flag class type  
+# Flag class type
 flag_cls: type[ExFlag] = MyFlag
 
 # Sequence of flags for exclusions
@@ -479,7 +479,7 @@ try:
     class InvalidOptions(OptionsFlag):
         NO_HELP = 1  # Missing help text
 except TypeError as e:
-    print(f"Error: {e}")  
+    print(f"Error: {e}")
     # Output: "Error: A help string is required"
 ```
 

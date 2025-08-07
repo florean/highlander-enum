@@ -12,7 +12,7 @@ pip install highlander-enum
 
 ### Requirements
 
-- Python 3.11 or higher
+- Python 3.13 or higher
 - No additional dependencies required
 
 ## Your First Highlander Enum
@@ -66,11 +66,11 @@ class Mode(ExFlag, conflict=LHS):
     FAST = 1
     SLOW = 2, (FAST,)
 
-result = Mode.FAST | Mode.SLOW  
+result = Mode.FAST | Mode.SLOW
 print(result)  # Mode.FAST (left side wins)
 ```
 
-### 3. STRICT Mode  
+### 3. STRICT Mode
 
 Raises an exception when conflicts occur:
 
@@ -100,12 +100,12 @@ class UISettings(ExFlag):
     LIGHT_THEME = 1
     DARK_THEME = 2
     HIGH_CONTRAST = 4, (LIGHT_THEME, DARK_THEME)
-    
-    # Font size group (mutually exclusive)  
+
+    # Font size group (mutually exclusive)
     SMALL_FONT = 8
     MEDIUM_FONT = 16
     LARGE_FONT = 32, (SMALL_FONT, MEDIUM_FONT)
-    
+
     # Independent features (no conflicts)
     ANIMATIONS = 64
     SOUND_EFFECTS = 128
@@ -131,7 +131,7 @@ class ServerOptions(OptionsFlag):
     VERBOSE = 1, ["v", "verbose"], "Enable verbose logging"
     QUIET = 2, ["q", "quiet"], "Suppress all output", (VERBOSE,)
     DEBUG = 4, ["d", "debug"], "Enable debug mode", (QUIET,)
-    
+
     # Different tuple formats supported:
     DAEMON = 8, "Run as daemon"  # Just help text
     CONFIG = 16, ["c", "config"], "Specify config file"  # No exclusions
@@ -181,7 +181,7 @@ from highlander import ExFlag
 
 class DynamicFlag(ExFlag):
     A = 1
-    B = 2  
+    B = 2
     C = 4
 
 # Add exclusions after class creation
@@ -198,7 +198,7 @@ print(result)  # DynamicFlag.A (conflicts resolved)
 Now that you've learned the basics, you can:
 
 1. **[Read the User Guide](user-guide.md)** - Dive deeper into advanced features and patterns
-2. **[Check out Examples](examples.md)** - See real-world usage scenarios  
+2. **[Check out Examples](examples.md)** - See real-world usage scenarios
 3. **[Browse the API Reference](api-reference.md)** - Explore all available methods and options
 
 ## Common Patterns
@@ -213,14 +213,14 @@ class Config(ExFlag):
     MEDIUM = 2
     HIGH = 4
     ULTRA = 8, (OW, MEDIUM, HIGH)
-    
+
     # Independent features
     COMPRESSION = 16
     ENCRYPTION = 32
 ```
 
 ### State Management (coming soon)
-```python  
+```python
 class ConnectionState(ExFlag):
     DISCONNECTED = 1
     CONNECTING = 2, (DISCONNECTED,)

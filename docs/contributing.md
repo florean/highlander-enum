@@ -6,7 +6,7 @@ Thank you for your interest in contributing to Highlander Enum! This project mai
 
 ### Prerequisites
 
-- Python 3.11 or higher
+- Python 3.13 or higher
 - [uv](https://docs.astral.sh/uv/) (recommended) or pip
 - Git
 
@@ -22,7 +22,7 @@ Thank you for your interest in contributing to Highlander Enum! This project mai
    ```bash
    make install  # Sets up virtual environment and pre-commit hooks
    ```
-   
+
    Or manually with uv:
    ```bash
    uv sync
@@ -61,7 +61,7 @@ make check
 
 # Individual checks
 uv run pre-commit run -a    # Linting and formatting
-uv run ty check             # Type checking  
+uv run ty check             # Type checking
 uv run deptry .             # Check for obsolete dependencies
 ```
 
@@ -95,7 +95,7 @@ We use `ruff` for both linting and formatting:
 ### Type Hints
 
 - **All new code must include comprehensive type hints**
-- Use modern Python typing features (Python 3.11+)
+- Use modern Python typing features (Python 3.13+)
 - Import types from `typing` for compatibility
 
 ```python
@@ -132,7 +132,7 @@ def add_exclusions(self, *exclusive_values: IntFlag | int) -> None:
 
 - **100% test coverage is mandatory**
 - Write tests for all new functionality
-- Include edge cases and error conditions  
+- Include edge cases and error conditions
 - Test all conflict resolution strategies
 - Use descriptive test names
 
@@ -149,7 +149,7 @@ def test_strict_conflict_resolution_with_multiple_groups():
 When reporting bugs, please include:
 
 1. **Clear description** of the problem
-2. **Minimal reproduction case** 
+2. **Minimal reproduction case**
 3. **Expected vs actual behavior**
 4. **Python version and platform**
 5. **Highlander Enum version**
@@ -171,7 +171,7 @@ class TestFlag(ExFlag):
 result = TestFlag.A | TestFlag.B
 ```
 
-**Expected:** `TestFlag.B`  
+**Expected:** `TestFlag.B`
 **Actual:** `TestFlag.A`
 
 **Environment:**
@@ -237,7 +237,7 @@ Types: `feat`, `fix`, `docs`, `test`, `refactor`, `perf`, `chore`
 ```
 tests/
 ├── test_exflag.py          # Tests for ExFlag class
-├── test_optionsflag.py     # Tests for OptionsFlag class  
+├── test_optionsflag.py     # Tests for OptionsFlag class
 ├── test_enumplustype.py    # Tests for EnumPlusType metaclass
 └── conftest.py             # Pytest configuration (if needed)
 ```
@@ -252,7 +252,7 @@ def test_rhs_conflict_resolution():
     class TestFlag(ExFlag):  # Default RHS
         A = 1
         B = 2, [A]
-    
+
     result = TestFlag.A | TestFlag.B
     assert result == TestFlag.B  # RHS wins
 
@@ -261,8 +261,8 @@ def test_lhs_conflict_resolution():
     class TestFlag(ExFlag, conflict=LHS):
         A = 1
         B = 2, [A]
-    
-    result = TestFlag.A | TestFlag.B  
+
+    result = TestFlag.A | TestFlag.B
     assert result == TestFlag.A  # LHS wins
 
 def test_strict_conflict_resolution():
@@ -270,7 +270,7 @@ def test_strict_conflict_resolution():
     class TestFlag(ExFlag, conflict=STRICT):
         A = 1
         B = 2, [A]
-    
+
     with pytest.raises(ValueError, match="conflicts with"):
         TestFlag.A | TestFlag.B
 ```
@@ -283,7 +283,7 @@ def test_empty_exclusions():
     class TestFlag(ExFlag):
         A = 1, []  # Empty exclusions
         B = 2
-    
+
     result = TestFlag.A | TestFlag.B
     assert result.value == 3  # Should combine normally
 
@@ -301,14 +301,14 @@ def test_options_flag_help_text():
     """Test that help text is properly stored and accessible."""
     class TestOptions(OptionsFlag):
         VERBOSE = 1, "Enable verbose output"
-    
+
     assert TestOptions.VERBOSE.help == "Enable verbose output"
 
 def test_options_flag_aliases():
     """Test that aliases are properly registered."""
     class TestOptions(OptionsFlag):
         VERBOSE = 1, ["v", "verbose"], "Enable verbose output"
-    
+
     assert "v" in TestOptions.VERBOSE.aliases
     assert "verbose" in TestOptions.VERBOSE.aliases
     assert TestOptions._value2member_map_["v"] == TestOptions.VERBOSE
@@ -317,7 +317,7 @@ def test_options_flag_aliases():
 ### Coverage Requirements
 
 - **Line coverage: 100%**
-- **Branch coverage: 100%** 
+- **Branch coverage: 100%**
 - **All public methods must be tested**
 - **All error conditions must be tested**
 
@@ -429,7 +429,7 @@ New contributors might want to start with:
 
 - Documentation improvements
 - Additional test cases
-- Type hint improvements  
+- Type hint improvements
 - Example code additions
 
 Look for issues labeled `good-first-issue` or `help-wanted`.

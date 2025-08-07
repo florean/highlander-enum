@@ -70,7 +70,7 @@ class MyFlag(ExFlag):
     # Simple flags (no conflicts)
     FEATURE_A = 1
     FEATURE_B = 2
-    
+
     # Flag with exclusions
     EXCLUSIVE = 4
 MyFlag.EXCLUSIVE.add_exclusions(MyFlag.FEATURE_A, MyFlag.FEATURE_B)
@@ -95,7 +95,7 @@ print(result)  # RHSFlag.B
 from highlander import LHS
 
 class LHSFlag(ExFlag, conflict=LHS):
-    A = 1  
+    A = 1
     B = 2, (A,)
 
 result = LHSFlag.A | LHSFlag.B  # A wins
@@ -133,7 +133,7 @@ result1 = OpFlag.A | OpFlag.B  # OpFlag.B
 # AND operation (no conflict resolution needed)
 result2 = OpFlag.A & OpFlag.C  # OpFlag(0) if no common bits
 
-# XOR operation with conflict resolution  
+# XOR operation with conflict resolution
 result3 = OpFlag.A ^ OpFlag.B  # OpFlag.B
 
 # Reverse operations also work
@@ -166,7 +166,7 @@ Use `add_mutual_exclusions` to set up complex relationships:
 ```python
 class GroupFlag(ExFlag):
     A = 1
-    B = 2  
+    B = 2
     C = 4
     D = 8
 
@@ -191,16 +191,16 @@ from highlander import OptionsFlag
 class CLIOptions(OptionsFlag):
     # Format 1: (value, help_string)
     SIMPLE = 1, "Simple option with help text"
-    
-    # Format 2: (value, [aliases], help_string)  
+
+    # Format 2: (value, [aliases], help_string)
     WITH_ALIASES = 2, ["a", "alias"], "Option with aliases"
-    
+
     # Format 3: (value, [aliases], help_string, [exclusions])
     FULL = 4, ["f", "full"], "Full specification", (WITH_ALIASES,)
-    
+
     # Format 4: (value, help_string, [exclusions])
     HELP_EXCL = 8, "Help with exclusions", (SIMPLE,)
-    
+
     # Format 5: (value, [], help_string) - empty aliases
     EMPTY_ALIASES = 16, [], "Option with empty aliases list"
 ```
@@ -217,7 +217,7 @@ class ServerOpts(OptionsFlag):
 print(ServerOpts.VERBOSE.help)    # "Enable verbose output"
 print(ServerOpts.QUIET.help)      # "Suppress output"
 
-# Access aliases  
+# Access aliases
 print(ServerOpts.VERBOSE.aliases) # ['v', 'verbose']
 print(ServerOpts.DEBUG.aliases)   # []
 
@@ -242,18 +242,18 @@ class ProcessorOptions(OptionsFlag):
 
 def create_parser():
     parser = argparse.ArgumentParser()
-    
+
     # Add options based on flag definitions
     for option in ProcessorOptions:
         primary_name = f"--{option.name.lower().replace('_', '-')}"
         aliases = [f"--{alias}" for alias in option.aliases]
-        
+
         parser.add_argument(
             primary_name, *aliases,
             action='store_true',
             help=option.help
         )
-    
+
     return parser
 
 # Usage
@@ -263,7 +263,7 @@ args = parser.parse_args(['--fast', '--verbose'])
 # Convert args to flags
 flags = ProcessorOptions(0)
 if args.fast: flags |= ProcessorOptions.FAST
-if args.accurate: flags |= ProcessorOptions.ACCURATE  
+if args.accurate: flags |= ProcessorOptions.ACCURATE
 if args.verbose: flags |= ProcessorOptions.VERBOSE
 if args.quiet: flags |= ProcessorOptions.QUIET
 
@@ -291,7 +291,7 @@ class LogLevel(ExFlag):  # Default: RHS
 config = LogLevel.ERROR
 print(f"Initial: {config}")        # Initial: LogLevel.ERROR
 
-config |= LogLevel.WARN  
+config |= LogLevel.WARN
 print(f"After WARN: {config}")     # After WARN: LogLevel.WARN (WARN wins)
 
 config |= LogLevel.DEBUG
@@ -315,7 +315,7 @@ print(f"Initial: {security}")      # Initial: SecureMode.MAXIMUM
 security |= SecureMode.BASIC
 print(f"After BASIC: {security}")  # After BASIC: SecureMode.MAXIMUM (preserved)
 
-security |= SecureMode.ENHANCED  
+security |= SecureMode.ENHANCED
 print(f"After ENHANCED: {security}")  # After ENHANCED: SecureMode.MAXIMUM (preserved)
 ```
 
@@ -339,7 +339,7 @@ def safe_combine(flag1, flag2):
 result1 = safe_combine(ValidatedFlag.OPTION_A, ValidatedFlag.OPTION_C)
 print(result1)  # ValidatedFlag.OPTION_A|OPTION_C (no conflict)
 
-result2 = safe_combine(ValidatedFlag.OPTION_A, ValidatedFlag.OPTION_B)  
+result2 = safe_combine(ValidatedFlag.OPTION_A, ValidatedFlag.OPTION_B)
 print(result2)  # None (conflict detected and handled)
 ```
 
@@ -353,12 +353,12 @@ class ComplexFlag(ExFlag):
     RED = 1
     GREEN = 2
     BLUE = 4, (RED, GREEN)
-    
-    # Group 2: Sizes  
+
+    # Group 2: Sizes
     SMALL = 8
     MEDIUM = 16
     LARGE = 32, (SMALL, MEDIUM)
-    
+
     # Independent
     ANIMATED = 64
 
@@ -399,7 +399,7 @@ class AutoOptions(OptionsFlag):
     VERBOSE = auto(), ["v"], "Verbose output"
     QUIET = auto(), ["q"], "Quiet mode", (VERBOSE,)
     DEBUG = auto(), ["d"], "Debug mode", (QUIET,)
-    
+
     # auto() generates power-of-2 values automatically for flags
     FEATURE_X = auto(), "Another feature"
 
@@ -439,7 +439,7 @@ class IntFlag(ExFlag):
 flag1 = IntFlag(1 | 2)  # LOW + HIGH conflict
 print(flag1)  # IntFlag.LOW (conflict resolved)
 
-flag2 = IntFlag(1 | 4)  # LOW + EXTRA no conflict  
+flag2 = IntFlag(1 | 4)  # LOW + EXTRA no conflict
 print(flag2)  # IntFlag.LOW|EXTRA
 
 # Check membership
@@ -494,10 +494,10 @@ class ConfigManager(Generic[T]):
     def __init__(self, flag_class: type[T]) -> None:
         self.flag_class = flag_class
         self.current_flags: T = flag_class(0)
-    
+
     def set_flag(self, flag: T) -> None:
         self.current_flags |= flag
-    
+
     def get_flags(self) -> T:
         return self.current_flags
 
@@ -539,11 +539,11 @@ class UISettings(ExFlag):
     LIGHT = 1
     DARK = 2
     HIGH_CONTRAST = 4, (LIGHT, DARK)
-    
-    # Size group  
+
+    # Size group
     SMALL = 8
     LARGE = 16, (SMALL,)
-    
+
     # Independent features
     ANIMATIONS = 32
     TOOLTIPS = 64
@@ -560,23 +560,23 @@ class BadSettings(ExFlag):
 ```python
 class ComplexSystem(ExFlag):
     """System configuration flags with multiple exclusion groups.
-    
+
     Exclusion Groups:
     - Performance: FAST, BALANCED, THOROUGH
     - Verbosity: QUIET, NORMAL, VERBOSE
     - Output: JSON, XML, CSV
     """
-    
+
     # Performance group (mutually exclusive)
     FAST = 1
     BALANCED = 2
     THOROUGH = 4, (FAST, BALANCED)
-    
-    # Verbosity group (mutually exclusive)  
+
+    # Verbosity group (mutually exclusive)
     QUIET = 8
     NORMAL = 16
     VERBOSE = 32, (QUIET, NORMAL)
-    
+
     # Output format group (mutually exclusive)
     JSON = 64
     XML = 128
@@ -618,18 +618,18 @@ def test_conflict_resolution():
     """Test that conflicts are resolved correctly."""
     result = TestFlag.A | TestFlag.B
     assert result == TestFlag.B  # RHS wins
-    
+
 def test_integer_creation():
     """Test creating flags from integers."""
-    flag = TestFlag(3)  # A + B 
+    flag = TestFlag(3)  # A + B
     assert flag == TestFlag.A  # Conflict resolved
-    
+
 def test_no_conflict():
     """Test non-conflicting combinations."""
     # Add non-conflicting flag for testing
     class ExtendedFlag(TestFlag):
         C = 4
-        
+
     result = ExtendedFlag.A | ExtendedFlag.C
     assert result.value == 5  # Should combine normally
 ```

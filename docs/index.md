@@ -17,7 +17,7 @@
 - 🏃 **Performance Optimized**: Uses bitmasks for fast conflict detection during bitwise operations
 - 📋 **Command-Line Ready**: `OptionsFlag` includes aliases and help text for CLI tools
 - 🎯 **Type Safe**: Full type hints and comprehensive test coverage (100%)
-- 🐍 **Modern Python**: Supports Python 3.11, 3.12, and 3.13
+- 🐍 **Modern Python**: Supports Python 3.13
 
 ## 🚀 Quick Example
 
@@ -29,7 +29,7 @@ class NetworkMode(ExFlag):
     IPV4 = 1
     IPV6 = 2
     ENCRYPTION = 4
-    
+
     # Mutually exclusive verbosity levels
     QUIET = 16
     VERBOSE = 32
@@ -49,7 +49,7 @@ print(mode)  # NetworkMode.ENCRYPTION|IPV4|VERBOSE
 ### [Getting Started](getting-started.md)
 Learn how to install and get up and running with Highlander Enum in minutes.
 
-### [User Guide](user-guide.md) 
+### [User Guide](user-guide.md)
 Comprehensive guide covering all features, conflict resolution strategies, and advanced usage patterns.
 
 ### [Examples](examples.md)
@@ -82,7 +82,7 @@ class MyFlag(ExFlag, conflict="rhs"):  # RHS, LHS, or STRICT
     C = 4
 ```
 
-### `OptionsFlag`  
+### `OptionsFlag`
 Specialized for command-line options with aliases and help text.
 
 ```python
