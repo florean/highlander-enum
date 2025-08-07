@@ -79,6 +79,12 @@ def test_mutually_exclusive_flag_creation():
     assert MyFlag.C == MyFlag.C
 
 
+def test_access_by_name():
+    assert MyFlag("A") == MyFlag.A
+    with pytest.raises(ValueError, match="is not a valid"):
+        MyFlag("invalid_name")
+
+
 def test_mutually_exclusive_or_operations():
     """Test ExFlag operations with simple cases"""
 

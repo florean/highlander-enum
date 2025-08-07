@@ -84,7 +84,7 @@ class ExFlag(IntFlag, metaclass=EnumPlusType):
         cls.add_mutual_exclusions(ex_flags)
         return self
 
-    def __call__(cls: type["ExFlag"], value: int) -> Self:
+    def __call__(cls: type["ExFlag"], value: int | Any) -> Self:
         """Create an ExFlag instance from an integer value, resolving conflicts.
 
         This method is called when creating enum instances from integer values,
@@ -103,15 +103,12 @@ class ExFlag(IntFlag, metaclass=EnumPlusType):
             For STRICT mode, _handle_conflict may raise a ValueError if
             conflicts are detected in the original value.
         """
-<<<<<<< HEAD
-=======
         if not isinstance(value, int):
             if value in cls._member_map_:
                 return cls[value]
             else:
                 raise ValueError(f"{value} is not a valid {cls.__name__}")  # noqa: TRY003
             return Enum.__new__(cls, value)
->>>>>>> 39b5adc (fix(enums): fixed a linting conflict)
         cleaned_value = value
         for x in range(cleaned_value.bit_length()):
             if set_bit := 1 << x & cleaned_value:
