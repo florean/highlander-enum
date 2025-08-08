@@ -6,7 +6,7 @@ Thank you for your interest in contributing to Highlander Enum! This project mai
 
 ### Prerequisites
 
-- Python 3.13 or higher
+- Python 3.11 or higher
 - [uv](https://docs.astral.sh/uv/) (recommended) or pip
 - Git
 
@@ -95,7 +95,7 @@ We use `ruff` for both linting and formatting:
 ### Type Hints
 
 - **All new code must include comprehensive type hints**
-- Use modern Python typing features (Python 3.13+)
+- Use modern Python typing features (Python 3.11+)
 - Import types from `typing` for compatibility
 
 ```python

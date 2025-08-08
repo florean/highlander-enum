@@ -334,5 +334,56 @@ def test_options_flag_argument_patterns():
     assert EmptyAliasFlag.EMPTY.help == "Help with empty aliases"
 
 
+def test_add_value_alias_error_conditions():
+    """Test error conditions in _add_value_alias_ method for full coverage."""
+
+    # Test case: alias already bound to a different member
+    class AliasConflictFlag(OptionsFlag):
+        OPTION_A = 1, ["conflict"], "Option A"
+        OPTION_B = 2, "Option B"
+
+    # Try to add an alias that's already bound to OPTION_A
+    with pytest.raises(ValueError, match="'conflict' is already bound"):
+        AliasConflictFlag.OPTION_B._add_value_alias_("conflict")
+
+
+def test_add_value_alias_hashable_only():
+    """Test that _add_value_alias_ works only with hashable types."""
+
+    class HashableTestFlag(OptionsFlag):
+        OPTION_A = 1, "Option A"
+        OPTION_B = 2, "Option B"
+
+    # Test with hashable string - should work fine
+    HashableTestFlag.OPTION_A._add_value_alias_("new_alias")
+    assert "new_alias" in HashableTestFlag._value2member_map_
+    assert HashableTestFlag._value2member_map_["new_alias"] == HashableTestFlag.OPTION_A
+
+    # Test with hashable integer - should work fine
+    HashableTestFlag.OPTION_B._add_value_alias_(42)
+    assert 42 in HashableTestFlag._value2member_map_
+    assert HashableTestFlag._value2member_map_[42] == HashableTestFlag.OPTION_B
+
+    # Test with hashable tuple - should work fine
+    HashableTestFlag.OPTION_A._add_value_alias_(("tuple", "alias"))
+    assert ("tuple", "alias") in HashableTestFlag._value2member_map_
+    assert HashableTestFlag._value2member_map_[("tuple", "alias")] == HashableTestFlag.OPTION_A
+
+
+def test_add_value_alias_existing_same_member():
+    """Test adding existing hashable alias to same member (early return)."""
+
+    class SameMemberHashableFlag(OptionsFlag):
+        OPTION_A = 1, ["existing"], "Option A"
+
+    # Try to add the same alias again - should return early without error
+    # This tests line 460 (early return when alias is already bound to same member)
+    SameMemberHashableFlag.OPTION_A._add_value_alias_("existing")
+
+    # Verify it's still there and only appears once
+    assert "existing" in SameMemberHashableFlag._value2member_map_
+    assert SameMemberHashableFlag._value2member_map_["existing"] == SameMemberHashableFlag.OPTION_A
+
+
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])

@@ -107,7 +107,7 @@ class ExFlag(IntFlag, metaclass=EnumPlusType):
             if value in cls._member_map_:
                 return cls[value]
             else:
-                raise ValueError(f"{value} is not a valid {cls.__name__}")  # noqa: TRY003
+                raise ValueError(f"{value} is not a valid {cls.__name__}")
             return Enum.__new__(cls, value)
         cleaned_value = value
         for x in range(cleaned_value.bit_length()):
@@ -432,7 +432,7 @@ class OptionsFlag(ExFlag):
         exclusions: list[int | tuple[int | Any, ...]] = []
         aliases: list[str] = []
         if not args:
-            raise TypeError("A help string is required")  # noqa: TRY003
+            raise TypeError("A help string is required")
         elif len(args) == 1:
             help_str: str = args[0]
         elif len(args) == 2:
@@ -444,7 +444,7 @@ class OptionsFlag(ExFlag):
         elif len(args) == 3:
             aliases, help_str, exclusions = args
         else:
-            raise TypeError(f"Expected at most 4 arguments, received {len(args) + 1}")  # noqa: TRY003
+            raise TypeError(f"Expected at most 4 arguments, received {len(args) + 1}")
         self: Self = super().__new__(cls, value, exclusions)
         self._help = help_str
         for alias in aliases:

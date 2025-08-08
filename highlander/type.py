@@ -98,6 +98,8 @@ class EnumPlusType(EnumType):
         Raises:
             TypeError: If the conflict resolution strategy is invalid or not implemented.
         """
+
+        # Get enum for conflict resolution strategy
         conflict_enum: Enum | None
         if conflict:
             try:
@@ -138,6 +140,16 @@ class EnumPlusType(EnumType):
         # Replace any altered __new__ methods with their originals.
         # EnumType does this, but it stops at the first one found.
         replaced_news = metacls.restore_new_members(bases)
+
+        # Add _add_value_alias_ if it doesn't exist. Do it last because we add to bases, so
+        # reason to do that while we're still searching through them.
+        for base in traverse_bases(bases):
+            if hasattr(base, "_add_value_alias_"):
+                break
+        else:
+            # Insert our _add_value_alias_ mixin class right before object.
+            bases = (*bases[:-1], ValueAliasShim, *bases[-1:])
+
         enum_cls = super().__new__(
             metacls, cls, bases, classdict, boundary=boundary, _simple=_simple, **kwds
         )
@@ -153,7 +165,7 @@ class EnumPlusType(EnumType):
                 ):
                     break
             else:
-                raise TypeError(  # noqa: TRY003
+                raise TypeError(
                     f"No matching implementation for conflict resolution: {conflict_enum}"
                 )
             rebind_method("_handle_conflict", enum_cls, conflict_attr, base)
@@ -262,20 +274,20 @@ def rebind_method(  # noqa: C901
     """
 
     if isinstance(src_method, str) and not src_cls:
-        raise ValueError("if src_method is a string, src_cls is required")  # noqa: TRY003
+        raise ValueError("if src_method is a string, src_cls is required")
 
     method: classmethod | staticmethod | Callable[..., Any] | None
     if src_cls:
         if isinstance(src_method, str):
             src_method_name: str = src_method
         elif not (src_method_name := getattr(src_method, "__name__", None)):
-            raise ValueError(f"{src_method} was invalid object")  # noqa: TRY003
+            raise ValueError(f"{src_method} was invalid object")
 
         for base in src_cls.__mro__:
             if method := base.__dict__.get(src_method_name):
                 break
         else:
-            raise ValueError(f"{src_method_name} not in {src_cls}")  # noqa: TRY003
+            raise ValueError(f"{src_method_name} not in {src_cls}")
     else:
         method = src_method  # type: ignore[invalid-assignment] Can't be a str
 
@@ -288,7 +300,7 @@ def rebind_method(  # noqa: C901
 
     # Ensure func is callable and has the required attributes
     if not callable(func) or not hasattr(func, "__code__"):
-        raise TypeError(f"{src_method} is not a valid function")  # noqa: TRY003
+        raise TypeError(f"{src_method} is not a valid function")
 
     new_func: FunctionType = FunctionType(
         func.__code__,  # type: ignore[attr-defined]
@@ -306,3 +318,30 @@ def rebind_method(  # noqa: C901
 
     # Bind to target
     setattr(target_cls, target_name, bind_method(new_func))
+
+
+class ValueAliasShim:
+    """A mixin-style class to provide _add_value_alias_ to Pythons < 3.13.
+
+    This is tricky. To set this on the enum class before member creation, I'd have
+    to override EnumDict.__setitem__.  I could set this as a dunder and then alias
+    the 3.13+ sunder version and just have a different API than standard enums, but
+    I think this is the best approach.  This version of _add_value_alias_ is a slightly
+    lobotomized copy of the Python version, without the ability to handle unhashable
+    values, as that was a mess before 3.13.
+    """
+
+    # Entirely copied from cpython/Lib/enum.py:_add_value_alias_
+    def _add_value_alias_(self, value: Any) -> None:
+        cls = self.__class__
+        try:
+            if value in cls._value2member_map_:
+                if cls._value2member_map_[value] is not self:
+                    raise ValueError(
+                        f"{value!r} is already bound: {cls._value2member_map_[value]!r}"
+                    )
+                return
+        except TypeError as err:
+            raise TypeError("Unhashable values aren't supported") from err
+        # Add the value to the mapping for hashable values only
+        cls._value2member_map_.setdefault(value, self)

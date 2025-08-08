@@ -12,7 +12,7 @@ pip install highlander-enum
 
 ### Requirements
 
-- Python 3.13 or higher
+- Python 3.11 or higher
 - No additional dependencies required
 
 ## Your First Highlander Enum

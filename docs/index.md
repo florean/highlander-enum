@@ -17,7 +17,7 @@
 - 🏃 **Performance Optimized**: Uses bitmasks for fast conflict detection during bitwise operations
 - 📋 **Command-Line Ready**: `OptionsFlag` includes aliases and help text for CLI tools
 - 🎯 **Type Safe**: Full type hints and comprehensive test coverage (100%)
-- 🐍 **Modern Python**: Supports Python 3.13
+- 🐍 **Modern Python**: Supports Python 3.11, 3.12, and 3.13
 
 ## 🚀 Quick Example
 
