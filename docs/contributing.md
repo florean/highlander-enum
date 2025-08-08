@@ -177,7 +177,7 @@ result = TestFlag.A | TestFlag.B
 **Environment:**
 - Python: 3.13.5
 - Platform: macOS 14.1
-- Highlander Enum: 0.9.0
+- Highlander Enum: 0.9.1
 ```
 
 ### 💡 Feature Requests

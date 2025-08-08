@@ -1,6 +1,6 @@
 [project]
 name = "highlander-enum"
-version = "0.9.0"
+version = "0.9.1"
 description = "Better enums including flags with subsets in which there can be only one... set."
 authors = [{ name = "Nathan Florea", email = "florean@gmail.com" }]
 readme = "README.md"
