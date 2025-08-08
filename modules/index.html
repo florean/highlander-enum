@@ -627,6 +627,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#highlander.type.ValueAliasShim" class="md-nav__link">
+    <span class="md-ellipsis">
+      ValueAliasShim
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -901,6 +910,15 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#highlander.type.ValueAliasShim" class="md-nav__link">
+    <span class="md-ellipsis">
+      ValueAliasShim
+    </span>
+  </a>
   
 </li>
         
@@ -2974,6 +2992,55 @@ enum creation, storing the original methods for later restoration.</p>
     </div>
 
 </div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h5 id="highlander.type.ValueAliasShim" class="doc doc-heading">
+            <code>ValueAliasShim</code>
+
+
+<a href="#highlander.type.ValueAliasShim" class="headerlink" title="Permanent link">&para;</a></h5>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>A mixin-style class to provide <em>add_value_alias</em> to Pythons &lt; 3.13.</p>
+<p>This is tricky. To set this on the enum class before member creation, I'd have
+to override EnumDict.<strong>setitem</strong>.  I could set this as a dunder and then alias
+the 3.13+ sunder version and just have a different API than standard enums, but
+I think this is the best approach.  This version of <em>add_value_alias</em> is a slightly
+lobotomized copy of the Python version, without the ability to handle unhashable
+values, as that was a mess before 3.13.</p>
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
 
 
 
